@@ -30,7 +30,7 @@ const HeaderCenter = () => {
           <span className="hidden lg:block">7 777 ₽</span>
         </a>
         <Button variant="outline" className="flex py-3 lg:hidden h-[50px]">
-          <BurgerIcon />
+          <BurgerIcon fill="#FE9015" />
         </Button>
       </div>
     </div>

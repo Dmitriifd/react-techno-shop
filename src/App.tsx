@@ -1,9 +1,11 @@
 import { Header } from '@components/header';
+import { MobileNav } from '@components/MobileNav';
 
 const App = () => {
   return (
-    <div>
+    <div className="relative">
       <Header />
+      <MobileNav />
     </div>
   );
 };

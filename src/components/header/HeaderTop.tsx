@@ -7,7 +7,7 @@ import { topNavLink } from '@mock/data';
 import { HeaderLogo } from './HeaderLogo';
 const HeaderTop = () => {
   return (
-    <nav className="flex items-center py-4">
+    <nav className="flex items-center py-1 md:py-4">
       <div className="block md:hidden">
         <HeaderLogo />
       </div>
