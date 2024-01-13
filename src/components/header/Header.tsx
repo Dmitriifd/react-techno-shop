@@ -4,7 +4,7 @@ import { HeaderTop } from './HeaderTop';
 
 const Header = () => {
   return (
-    <header className="border-b">
+    <header className="border-b md:border-none">
       <div className="container">
         <HeaderTop />
         <HeaderCenter />
