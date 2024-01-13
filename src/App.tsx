@@ -2,7 +2,7 @@ import { Header } from '@components/header';
 
 const App = () => {
   return (
-    <div className="container">
+    <div>
       <Header />
     </div>
   );

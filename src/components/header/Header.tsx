@@ -4,10 +4,12 @@ import { HeaderTop } from './HeaderTop';
 
 const Header = () => {
   return (
-    <header>
-      <HeaderTop />
-      <HeaderCenter />
-      <HeaderBottom />
+    <header className="border-b">
+      <div className="container">
+        <HeaderTop />
+        <HeaderCenter />
+        <HeaderBottom />
+      </div>
     </header>
   );
 };

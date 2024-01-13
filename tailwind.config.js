@@ -9,7 +9,7 @@ export default {
     screens: {
       sm: '375px',
       md: '768px',
-      lg: '1140px',
+      lg: '1080px',
     },
     container: {
       center: true,
