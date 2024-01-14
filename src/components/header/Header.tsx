@@ -13,7 +13,9 @@ const Header = () => {
   };
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
+    if (window.innerWidth >= 768) {
+      window.addEventListener('scroll', handleScroll);
+    }
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
