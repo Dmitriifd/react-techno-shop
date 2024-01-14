@@ -10,7 +10,7 @@ const HeaderCenter = () => {
   const user = false;
 
   return (
-    <div className="hidden md:flex items-center">
+    <div className="container hidden md:flex items-center bg-white py-1">
       <HeaderLogo />
       <HeaderSearch />
       <div className="flex gap-4">

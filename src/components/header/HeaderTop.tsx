@@ -7,11 +7,11 @@ import { HeaderLogo } from './HeaderLogo';
 import { HeaderNav } from './HeaderNav';
 const HeaderTop = () => {
   return (
-    <nav className="flex items-center py-1 md:py-4">
+    <nav className="container flex items-center py-1 md:py-4">
       <div className="block md:hidden">
         <HeaderLogo />
       </div>
-      <Button variant="search" className="flex gap-1 sm:ml-auto md:ml-0">
+      <Button variant="search" className="flex pr-0 gap-1 sm:ml-auto md:ml-0">
         <GeoIcon />
         <span>Москва</span>
         <ArrowIcon />
