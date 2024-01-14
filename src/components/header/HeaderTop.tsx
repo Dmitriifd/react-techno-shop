@@ -16,8 +16,10 @@ const HeaderTop = () => {
         <span>Москва</span>
         <ArrowIcon />
       </Button>
-      <HeaderNav />
-      <PhoneCallLink />
+      <div className="hidden lg:block pl-[46px]">
+        <HeaderNav />
+      </div>
+      <PhoneCallLink className="hidden md:flex gap-5 ml-auto" />
     </nav>
   );
 };

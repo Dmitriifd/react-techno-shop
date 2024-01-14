@@ -2,7 +2,7 @@ import { mobileNavLink } from '@mock/data';
 
 const MobileNav = () => {
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-99 shadow-[0px_0px_11px_0px_rgba(0,0,0,0.14)] block md:hidden h-[60px] px-4">
+    <nav className="fixed bottom-0 left-0 right-0 z-99 shadow-[0px_0px_11px_0px_rgba(0,0,0,0.14)] block md:hidden h-[60px] px-4 bg-white">
       <ul className="flex items-center justify-between">
         {mobileNavLink.map(({ id, title, ulr, icon }) => (
           <li key={id}>

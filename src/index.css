@@ -36,6 +36,10 @@
   }
   html {
     font-weight: 500;
+    height: 100%;
+  }
+  body, #root {
+    height: 100%;
   }
   .dark {
     --background: 222.2 84% 4.9%;
