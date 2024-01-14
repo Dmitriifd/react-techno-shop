@@ -6,7 +6,7 @@ const MobileNav = () => {
       <ul className="flex items-center justify-between">
         {mobileNavLink.map(({ id, title, ulr, icon }) => (
           <li key={id}>
-            <a href={ulr} className="p-2 flex flex-col gap-1 items-center justify-center text-gray-400 text-xs">
+            <a href={ulr} className="p-2 flex flex-col gap-1 items-center justify-center text-[#B5BBC4] text-xs">
               {icon}
               <span>{title}</span>
             </a>

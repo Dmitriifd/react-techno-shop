@@ -3,7 +3,7 @@ import { MobileNav } from '@components/MobileNav';
 
 const App = () => {
   return (
-    <div className="relative">
+    <div>
       <Header />
       <MobileNav />
     </div>
