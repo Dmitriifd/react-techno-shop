@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import { HeaderBottom } from './HeaderBottom';
 import { HeaderCenter } from './HeaderCenter';
@@ -7,19 +7,29 @@ import { HeaderTop } from './HeaderTop';
 const Header = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
 
-  const handleScroll = () => {
+  const handleScroll = useCallback(() => {
     const currentPosition = window.scrollY;
     setScrollPosition(currentPosition);
-  };
+  }, []);
 
   useEffect(() => {
-    if (window.innerWidth >= 768) {
-      window.addEventListener('scroll', handleScroll);
-    }
+    const checkWindowSize = () => {
+      if (window.innerWidth >= 768) {
+        window.addEventListener('scroll', handleScroll);
+      } else {
+        window.removeEventListener('scroll', handleScroll);
+      }
+    };
+
+    checkWindowSize();
+
+    window.addEventListener('resize', checkWindowSize);
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', checkWindowSize);
     };
-  }, []);
+  }, [handleScroll]);
 
   return (
     <header className="border-b md:border-none">
