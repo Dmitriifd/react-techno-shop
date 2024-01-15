@@ -106,3 +106,46 @@ export const mobileNavLink = [
     isMenu: true,
   },
 ];
+
+export const cities = [
+  {
+    id: uuidv4(),
+    title: 'Москва',
+  },
+  {
+    id: uuidv4(),
+    title: 'Санкт-Петербург',
+  },
+  {
+    id: uuidv4(),
+    title: 'Новосибирск',
+  },
+  {
+    id: uuidv4(),
+    title: 'Екатеринбург',
+  },
+  {
+    id: uuidv4(),
+    title: 'Нижний Новгород',
+  },
+  {
+    id: uuidv4(),
+    title: 'Казань',
+  },
+  {
+    id: uuidv4(),
+    title: 'Челябинск',
+  },
+  {
+    id: uuidv4(),
+    title: 'Омск',
+  },
+  {
+    id: uuidv4(),
+    title: 'Самара',
+  },
+  {
+    id: uuidv4(),
+    title: 'Ростов-на-Дону',
+  },
+];
