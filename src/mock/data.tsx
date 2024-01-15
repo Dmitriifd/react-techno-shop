@@ -101,7 +101,8 @@ export const mobileNavLink = [
   {
     id: uuidv4(),
     title: 'Меню',
-    ulr: '#',
-    icon: <BurgerIcon fill="#B5BBC4" />,
+    ulr: '/profile',
+    icon: <BurgerIcon />,
+    isMenu: true,
   },
 ];

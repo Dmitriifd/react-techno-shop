@@ -1,7 +1,6 @@
 import BasketIcon from '@assets/icons/basket.svg?react';
-import BurgerIcon from '@assets/icons/burger.svg?react';
 import UserIcon from '@assets/icons/user.svg?react';
-import { Button } from '@components/ui/button';
+import { MobileMenu } from '@components/MobileMenu';
 
 import { HeaderLogo } from './HeaderLogo';
 import { HeaderSearch } from './HeaderSearch';
@@ -29,9 +28,7 @@ const HeaderCenter = () => {
           </span>
           <span className="hidden lg:block">7 777 ₽</span>
         </a>
-        <Button variant="outline" className="flex py-3 lg:hidden h-[50px]">
-          <BurgerIcon fill="#FE9015" />
-        </Button>
+        <MobileMenu isHeader />
       </div>
     </div>
   );

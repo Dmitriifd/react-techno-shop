@@ -29,8 +29,8 @@ const Header = () => {
           <div
             className={`${
               scrollPosition >= 48
-                ? 'fixed top-0 left-0 right-0 shadow-md z-[99]'
-                : 'absolute top-0 left-0 right-0 z-[99]'
+                ? 'fixed top-0 left-0 right-0 shadow-md z-[50]'
+                : 'absolute top-0 left-0 right-0 z-[50]'
             }`}>
             <HeaderCenter />
           </div>
