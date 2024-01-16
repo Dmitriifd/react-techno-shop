@@ -6,7 +6,7 @@ const MobileNav = () => {
   return (
     <nav className="flex fixed bottom-0 left-0 right-0 z-50 shadow-[0px_0px_11px_0px_rgba(0,0,0,0.14)] md:hidden h-[60px] px-4 bg-white">
       <ul className="flex flex-1 items-center justify-between">
-        {mobileNavLink.map(({ id, title, ulr, icon, isMenu }) => (
+        {mobileNavLink.map(({ id, title, url: ulr, icon, isMenu }) => (
           <li key={id}>
             {isMenu ? (
               <MobileMenu isHeader={false} title={title} />

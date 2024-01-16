@@ -10,32 +10,32 @@ export const topNavLink = [
   {
     id: uuidv4(),
     title: 'О нас',
-    ulr: '/about',
+    url: '/about',
   },
   {
     id: uuidv4(),
     title: 'Доставка и оплата',
-    ulr: '/delivery',
+    url: '/delivery',
   },
   {
     id: uuidv4(),
     title: 'Вопросы и ответы',
-    ulr: '/questions',
+    url: '/questions',
   },
   {
     id: uuidv4(),
     title: 'Отзывы',
-    ulr: '/reviews',
+    url: '/reviews',
   },
   {
     id: uuidv4(),
     title: 'Статьи',
-    ulr: '/articles',
+    url: '/articles',
   },
   {
     id: uuidv4(),
     title: 'Контакты',
-    ulr: '/contacts',
+    url: '/contacts',
   },
 ];
 
@@ -43,32 +43,32 @@ export const bottomNavLink = [
   {
     id: uuidv4(),
     title: 'Смартфоны',
-    ulr: '/smartphones',
+    url: '/smartphones',
   },
   {
     id: uuidv4(),
     title: 'Ноутбуки',
-    ulr: '/notebooks',
+    url: '/notebooks',
   },
   {
     id: uuidv4(),
     title: 'Планшеты',
-    ulr: '/tablets',
+    url: '/tablets',
   },
   {
     id: uuidv4(),
     title: 'Мониторы',
-    ulr: '/monitors',
+    url: '/monitors',
   },
   {
     id: uuidv4(),
     title: 'Телевизоры',
-    ulr: '/television',
+    url: '/television',
   },
   {
     id: uuidv4(),
     title: 'Акции',
-    ulr: '/discount',
+    url: '/discount',
     icon: <DiscountIcon />,
   },
 ];
@@ -77,7 +77,7 @@ export const mobileNavLink = [
   {
     id: uuidv4(),
     title: 'Главная',
-    ulr: '/',
+    url: '/',
     icon: <HomeIcon />,
   },
   {

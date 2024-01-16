@@ -1,4 +1,4 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, Link } from 'react-router-dom';
 
 import { AppLayout } from '@components/AppLayout';
 import { HomePage } from '@pages/HomePage';
@@ -15,7 +15,11 @@ export const router = createBrowserRouter([
       },
       {
         path: '/smartphones',
-        element: <h1>Smartphones</h1>,
+        element: (
+          <Link state={{ title: 'Apple' }} to="apple">
+            Smartphones
+          </Link>
+        ),
       },
       { path: '*', element: <h1>404 - Page Not Found</h1> },
     ],
