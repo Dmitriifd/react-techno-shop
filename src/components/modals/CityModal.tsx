@@ -20,9 +20,9 @@ const CityModal = () => {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger className="flex items-center p-1 pr-0 gap-1 sm:ml-auto md:ml-0">
+      <DialogTrigger className="flex items-center p-1 pr-0 gap-2 sm:ml-auto md:ml-0">
         <GeoIcon />
-        <span>{selectedCity}</span>
+        <span className="text-sm lg:max-w-[70px]">{selectedCity}</span>
         <ArrowIcon />
       </DialogTrigger>
       <DialogContent className="test p-10  mb-4  md:h-max ">

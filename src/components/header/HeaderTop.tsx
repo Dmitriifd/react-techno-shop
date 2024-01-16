@@ -6,7 +6,7 @@ import { HeaderNav } from './HeaderNav';
 
 const HeaderTop = () => {
   return (
-    <nav className="container flex items-center justify-between py-1 md:py-4">
+    <nav className="container flex items-center justify-between py-1 md:py-4 gap-[20px]">
       <div className="block md:hidden">
         <HeaderLogo />
       </div>
