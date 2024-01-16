@@ -1,11 +1,16 @@
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+
 import BurgerIcon from '@assets/icons/burger.svg?react';
 import { Button } from '@components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@components/ui/sheet';
 import { bottomNavLink } from '@mock/data';
 
 const MobileMenu = ({ isHeader = false, title }: { isHeader: boolean; title?: string }) => {
+  const [open, setOpen] = useState(false);
+
   return (
-    <Sheet>
+    <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
         {isHeader ? (
           <Button variant="outline" className="flex py-3 lg:hidden h-[50px]">
@@ -20,12 +25,12 @@ const MobileMenu = ({ isHeader = false, title }: { isHeader: boolean; title?: st
       </SheetTrigger>
       <SheetContent className="w-[400px] sm:w-[540px] pt-10 pl-10">
         <ul className="space-y-5">
-          {bottomNavLink.map(({ id, title, ulr, icon }) => (
+          {bottomNavLink.map(({ id, title, url, icon }) => (
             <li key={id} className="text-xl ">
-              <a href={ulr} className={`${icon && 'flex items-center gap-1'}}`}>
+              <Link onClick={() => setOpen(false)} to={url} className={`${icon && 'flex items-center gap-1'}}`}>
                 {title}
                 <span className="pl-2">{icon}</span>
-              </a>
+              </Link>
             </li>
           ))}
         </ul>

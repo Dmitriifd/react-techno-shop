@@ -2,7 +2,6 @@ import BasketIcon from '@assets/icons/basket.svg?react';
 import BurgerIcon from '@assets/icons/burger.svg?react';
 import DiscountIcon from '@assets/icons/discount.svg?react';
 import HomeIcon from '@assets/icons/home.svg?react';
-import SearchIcon from '@assets/icons/search.svg?react';
 import UserIcon from '@assets/icons/user.svg?react';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -82,26 +81,20 @@ export const mobileNavLink = [
   },
   {
     id: uuidv4(),
-    title: 'Поиск',
-    ulr: '#',
-    icon: <SearchIcon fill="#B5BBC4" />,
-  },
-  {
-    id: uuidv4(),
     title: 'Корзина',
-    ulr: '/basket',
+    url: '/cart',
     icon: <BasketIcon fill="#B5BBC4" />,
   },
   {
     id: uuidv4(),
     title: 'Профиль',
-    ulr: '/profile',
+    url: '/profile',
     icon: <UserIcon fill="#B5BBC4" />,
   },
   {
     id: uuidv4(),
     title: 'Меню',
-    ulr: '/profile',
+    url: '/profile',
     icon: <BurgerIcon />,
     isMenu: true,
   },

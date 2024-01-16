@@ -15,11 +15,7 @@ export const router = createBrowserRouter([
       },
       {
         path: '/smartphones',
-        element: (
-          <Link state={{ title: 'Apple' }} to="apple">
-            Smartphones
-          </Link>
-        ),
+        element: <Link to="apple">Smartphones</Link>,
       },
       { path: '*', element: <h1>404 - Page Not Found</h1> },
     ],
