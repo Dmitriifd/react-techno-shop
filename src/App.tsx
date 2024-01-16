@@ -10,23 +10,6 @@ const App = () => {
       <main className="flex-auto">
         <div className="container mt-5">
           <Slider />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
         </div>
       </main>
       <MobileNav />
