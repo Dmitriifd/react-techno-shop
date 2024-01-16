@@ -8,8 +8,11 @@ export default {
   theme: {
     screens: {
       sm: '375px',
+      sm2: '575px',
       md: '768px',
       lg: '1080px',
+      xl: '1180px',
+      xll: '1250px',
     },
     container: {
       center: true,

@@ -1,13 +1,16 @@
 import { Footer } from '@components/footer';
 import { Header } from '@components/header';
 import { MobileNav } from '@components/MobileNav';
+import { Slider } from '@components/Slider';
 
 const App = () => {
   return (
     <div className="flex flex-col min-h-full">
       <Header />
       <main className="flex-auto">
-        <div className="container">Main</div>
+        <div className="container mt-5">
+          <Slider />
+        </div>
       </main>
       <MobileNav />
       <Footer />

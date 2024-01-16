@@ -149,3 +149,54 @@ export const cities = [
     title: 'Ростов-на-Дону',
   },
 ];
+
+export const products = [
+  {
+    id: 1,
+    title: 'Смартфон Apple iPhone 13 128 ГБ черный',
+    price: 74699,
+    img: 'iphone1.webp',
+  },
+  {
+    id: 2,
+    title: 'Смартфон Xiaomi Redmi 12 256 ГБ черный',
+    price: 14999,
+    img: 'xiaomi2.webp',
+  },
+  {
+    id: 3,
+    title: 'Смартфон HONOR 90 512 ГБ зеленый',
+    price: 47999,
+    img: 'honor3.webp',
+  },
+  {
+    id: 4,
+    title: 'Смартфон Samsung Galaxy S21 FE 256 ГБ черный',
+    price: 48499,
+    img: 'samsung4.webp',
+  },
+  {
+    id: 5,
+    title: 'Смартфон Apple iPhone 13 128 ГБ белый',
+    price: 74699,
+    img: 'iphone5.webp',
+  },
+  {
+    id: 6,
+    title: 'Смартфон Tecno POVA 5 256 ГБ черный',
+    price: 15499,
+    img: 'techno6.webp',
+  },
+  {
+    id: 7,
+    title: 'Смартфон POCO X5 Pro 5G 256 ГБ черный',
+    price: 31999,
+    img: 'poco7.webp',
+  },
+  {
+    id: 8,
+    title: 'Смартфон HUAWEI P60 Pro 256 ГБ белый',
+    price: 74999,
+    img: 'huawei8.webp',
+  },
+];
