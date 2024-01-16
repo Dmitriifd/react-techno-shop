@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import { bottomNavLink } from '@mock/data';
 
 const HeaderBottom = () => {
@@ -6,7 +8,7 @@ const HeaderBottom = () => {
       <ul className="gap-6 flex">
         {bottomNavLink.map(({ id, title, ulr, icon }) => (
           <li key={id} className={`transition-colors hover:text-accent-base ${icon ? 'flex items-center gap-2' : ''}`}>
-            <a href={ulr}>{title}</a>
+            <Link to={ulr}>{title}</Link>
             {icon}
           </li>
         ))}
