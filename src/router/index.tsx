@@ -1,6 +1,7 @@
-import { createBrowserRouter, Link } from 'react-router-dom';
+import { createBrowserRouter } from 'react-router-dom';
 
 import { AppLayout } from '@components/AppLayout';
+import { CatalogPage } from '@pages/CatalogPage';
 import { HomePage } from '@pages/HomePage';
 
 export const router = createBrowserRouter([
@@ -15,7 +16,7 @@ export const router = createBrowserRouter([
       },
       {
         path: '/smartphones',
-        element: <Link to="apple">Smartphones</Link>,
+        element: <CatalogPage />,
       },
       { path: '*', element: <h1>404 - Page Not Found</h1> },
     ],

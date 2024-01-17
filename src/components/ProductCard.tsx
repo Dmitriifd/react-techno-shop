@@ -9,6 +9,7 @@ type ProductCardProps = {
 };
 
 const ProductCard = ({ title, price, img }: ProductCardProps) => {
+
   return (
     <Card className="flex flex-col h-full">
       <CardHeader className="pt-4 pb-3 mx-auto">
