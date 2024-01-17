@@ -1,6 +1,6 @@
 import { PriceFilter } from '@components/filters/PriceFilter';
+import { YearsFilter } from '@components/filters/YearsFilter';
 import { ProductCard } from '@components/ProductCard';
-
 const CatalogPage = () => {
   return (
     <section className="pt-3 pb-10">
@@ -8,6 +8,7 @@ const CatalogPage = () => {
         {/* Filters */}
         <div className="w-[300px] border rounded-lg p-5">
           <PriceFilter />
+          <YearsFilter />
         </div>
 
         {/* Products list */}
