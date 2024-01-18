@@ -6,10 +6,10 @@ type ProductCardProps = {
   title: string;
   price: number;
   img: string;
+  id: number;
 };
 
-const ProductCard = ({ title, price, img }: ProductCardProps) => {
-
+const ProductCard = ({ title, price, img, id }: ProductCardProps) => {
   return (
     <Card className="flex flex-col h-full">
       <CardHeader className="pt-4 pb-3 mx-auto">
@@ -26,9 +26,15 @@ const ProductCard = ({ title, price, img }: ProductCardProps) => {
         </a>
       </CardDescription>
       <CardFooter>
-        <Button variant="base" className="w-full">
-          В корзину
-        </Button>
+        {id === 1 ? (
+          <Button variant="outline2" className="w-full">
+            В корзине
+          </Button>
+        ) : (
+          <Button variant="base" className="w-full">
+            Купить
+          </Button>
+        )}
       </CardFooter>
     </Card>
   );

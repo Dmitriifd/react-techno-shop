@@ -19,7 +19,7 @@ const CatalogPage = () => {
           <FilterPanel />
           <div className="grid grid-cols-4 gap-5 flex-wrap">
             {Array.from({ length: 10 }).map((_, index) => (
-              <ProductCard key={index} img="/poco7.webp" title="Poco m5" price={20000} />
+              <ProductCard key={index} img="/poco7.webp" id={index} title="Poco m5" price={20000} />
             ))}
           </div>
         </div>
