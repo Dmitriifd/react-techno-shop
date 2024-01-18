@@ -1,3 +1,4 @@
+import { BrandFilter } from '@components/filters/BrandFilter';
 import { FilterPanel } from '@components/filters/FilterPanel';
 import { PriceFilter } from '@components/filters/PriceFilter';
 import { YearsFilter } from '@components/filters/YearsFilter';
@@ -9,6 +10,7 @@ const CatalogPage = () => {
         {/* Filters */}
         <div className="w-[300px] border rounded-lg p-5">
           <PriceFilter />
+          <BrandFilter />
           <YearsFilter />
         </div>
 

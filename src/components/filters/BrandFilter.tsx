@@ -3,10 +3,10 @@ import { useState } from 'react';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 import ArrowIcon from '@assets/icons/arrowDown.svg?react';
 import { Button } from '@components/ui/button';
-import { Checkbox } from '@components/ui/checkbox';
-import { Label } from '@components/ui/label';
+import { Input } from '@components/ui/input';
+import { ShowMore } from '@components/ui/show-more';
 
-const YearsFilter = () => {
+const BrandFilter = () => {
   const [isOpen, setIsOpen] = useState(true);
 
   return (
@@ -17,7 +17,7 @@ const YearsFilter = () => {
             variant="ghost"
             size="sm"
             className="flex w-full justify-between p-2 pl-0 text-base font-bold hover:bg-transparent">
-            <span>Год релиза</span>
+            <span>Производитель</span>
             <ArrowIcon
               width={24}
               height={24}
@@ -28,21 +28,11 @@ const YearsFilter = () => {
         </CollapsibleTrigger>
       </div>
       <CollapsibleContent className="space-y-2 pt-3">
-        <Label className="flex gap-3 items-center cursor-pointer">
-          <Checkbox />
-          <span className="grow">2024</span>
-        </Label>
-        <Label className="flex gap-3 items-center cursor-pointer">
-          <Checkbox />
-          <span className="grow">2023</span>
-        </Label>
-        <Label className="flex gap-3 items-center cursor-pointer">
-          <Checkbox />
-          <span className="grow">2022</span>
-        </Label>
+        <Input placeholder="Поиск" className="mb-5" />
+        <ShowMore />
       </CollapsibleContent>
     </Collapsible>
   );
 };
 
-export { YearsFilter };
+export { BrandFilter };
