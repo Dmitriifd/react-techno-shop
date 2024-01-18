@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 
 import { Button } from './ui/button';
@@ -17,7 +19,7 @@ const ProductCard = ({ title, price, img, id }: ProductCardProps) => {
       </CardHeader>
       <CardContent className="flex-auto pb-3">
         <CardTitle className="font-medium text-sm xl:text-[16px]">
-          <a href="/">{title}</a>
+          <Link to="/product">{title}</Link>
         </CardTitle>
       </CardContent>
       <CardDescription className="px-6 pb-3 ">
