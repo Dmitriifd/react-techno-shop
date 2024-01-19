@@ -1,12 +1,12 @@
 import { createBrowserRouter } from 'react-router-dom';
 
 import { AppLayout } from '@components/AppLayout';
+import { ProfileLayout } from '@components/ProfileLayout';
 import { CartPage } from '@pages/CartPage';
 import { CatalogPage } from '@pages/CatalogPage';
 import { HomePage } from '@pages/HomePage';
 import { LoginPage } from '@pages/LoginPage';
 import { ProductPage } from '@pages/ProductPage';
-import { ProfilePage } from '@pages/ProfilePage';
 
 export const router = createBrowserRouter([
   {
@@ -36,7 +36,22 @@ export const router = createBrowserRouter([
       },
       {
         path: '/profile',
-        element: <ProfilePage />,
+        element: <ProfileLayout />,
+        children: [
+          { index: true, element: <h1>ProfilePage</h1> },
+          {
+            path: 'address',
+            element: <h1>Address</h1>,
+          },
+          {
+            path: 'order',
+            element: <h1>Order</h1>,
+          },
+          {
+            path: 'password',
+            element: <h1>Password</h1>,
+          },
+        ],
       },
       { path: '*', element: <h1>404 - Page Not Found</h1> },
     ],
