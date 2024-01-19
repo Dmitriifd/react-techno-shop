@@ -3,9 +3,10 @@ import { FilterPanel } from '@components/filters/FilterPanel';
 import { PriceFilter } from '@components/filters/PriceFilter';
 import { YearsFilter } from '@components/filters/YearsFilter';
 import { ProductCard } from '@components/ProductCard';
+import { Section } from '@components/ui/section';
 const CatalogPage = () => {
   return (
-    <section className="pt-3 pb-10">
+    <Section>
       <div className="flex gap-10 items-start">
         {/* Filters */}
         <div className="w-[300px] border rounded-lg p-5">
@@ -24,7 +25,7 @@ const CatalogPage = () => {
           </div>
         </div>
       </div>
-    </section>
+    </Section>
   );
 };
 

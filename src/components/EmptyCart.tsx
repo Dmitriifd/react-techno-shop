@@ -2,9 +2,11 @@ import { Link } from 'react-router-dom';
 
 import ArrowLeftIcon from '@assets/icons/arrowLeft.svg?react';
 
+import { Section } from './ui/section';
+
 const EmptyCart = () => {
   return (
-    <section>
+    <Section>
       <div className="flex items-center flex-col">
         <div>
           <img className="w-[250px] h-[250px]" src="/empty-cart.png" alt="empty cart" />
@@ -17,7 +19,7 @@ const EmptyCart = () => {
           Вернуться назад
         </Link>
       </div>
-    </section>
+    </Section>
   );
 };
 

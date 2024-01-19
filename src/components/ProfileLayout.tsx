@@ -2,9 +2,11 @@ import { Link, Outlet } from 'react-router-dom';
 
 import { Button } from '@components/ui/button';
 
+import { Section } from './ui/section';
+
 const ProfileLayout = () => {
   return (
-    <div>
+    <Section>
       <h1 className="mb-10 text-2xl font-bold">Личный кабинет</h1>
 
       <div className="flex">
@@ -34,7 +36,7 @@ const ProfileLayout = () => {
         </ul>
         <Outlet />
       </div>
-    </div>
+    </Section>
   );
 };
 

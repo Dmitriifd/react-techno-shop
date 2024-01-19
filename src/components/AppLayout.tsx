@@ -11,9 +11,7 @@ const AppLayout = () => {
       <Header />
       <Breadcrumbs />
       <main className="flex-auto">
-        <div className="container mt-5">
-          <Outlet />
-        </div>
+        <Outlet />
       </main>
       <MobileNav />
       <Footer />

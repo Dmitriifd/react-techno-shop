@@ -1,10 +1,11 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { LoginForm } from '@components/LoginForm';
 import { RegisterForm } from '@components/RegisterForm';
+import { Section } from '@components/ui/section';
 
 const LoginPage = () => {
   return (
-    <section className="flex justify-center">
+    <Section className="flex justify-center">
       <Tabs defaultValue="account">
         <TabsList className="gap-5 justify-between">
           <TabsTrigger value="account">Вход</TabsTrigger>
@@ -17,7 +18,7 @@ const LoginPage = () => {
           <RegisterForm />
         </TabsContent>
       </Tabs>
-    </section>
+    </Section>
   );
 };
 

@@ -1,10 +1,11 @@
 import { Slider } from '@components/Slider';
+import { Section } from '@components/ui/section';
 
 const HomePage = () => {
   return (
-    <div>
+    <Section>
       <Slider title="Хиты продаж" />
-    </div>
+    </Section>
   );
 };
 

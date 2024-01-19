@@ -5,10 +5,11 @@ import VanIcon from '@assets/icons/van.svg?react';
 import WatchIcon from '@assets/icons/watch.svg?react';
 import { Slider } from '@components/Slider';
 import { Button } from '@components/ui/button';
+import { Section } from '@components/ui/section';
 
 const ProductPage = () => {
   return (
-    <section className="pb-32">
+    <Section>
       {/* Product */}
       <div className="flex gap-8 items-start mb-[50px]">
         {/* ProductImage */}
@@ -91,7 +92,7 @@ const ProductPage = () => {
       <div className="mt-10">
         <Slider title="Рекомендуемые товары" />
       </div>
-    </section>
+    </Section>
   );
 };
 

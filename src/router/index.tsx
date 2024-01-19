@@ -2,6 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 
 import { AppLayout } from '@components/AppLayout';
 import { ProfileLayout } from '@components/ProfileLayout';
+import { Section } from '@components/ui/section';
 import { CartPage } from '@pages/CartPage';
 import { CatalogPage } from '@pages/CatalogPage';
 import { HomePage } from '@pages/HomePage';
@@ -53,7 +54,14 @@ export const router = createBrowserRouter([
           },
         ],
       },
-      { path: '*', element: <h1>404 - Page Not Found</h1> },
+      {
+        path: '*',
+        element: (
+          <Section>
+            <h1>404 - Page Not Found</h1>
+          </Section>
+        ),
+      },
     ],
   },
 ]);

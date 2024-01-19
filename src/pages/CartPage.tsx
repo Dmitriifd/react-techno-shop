@@ -4,6 +4,7 @@ import PlusIcon from '@assets/icons/plus.svg?react';
 import { EmptyCart } from '@components/EmptyCart';
 import { Button } from '@components/ui/button';
 import { Input } from '@components/ui/input';
+import { Section } from '@components/ui/section';
 
 const CartPage = () => {
   const isEmpty = true;
@@ -13,7 +14,7 @@ const CartPage = () => {
   }
 
   return (
-    <section>
+    <Section>
       <h2 className="mb-10 text-2xl font-bold">Корзина</h2>
       <div className="flex items-start">
         {/* Cards */}
@@ -106,7 +107,7 @@ const CartPage = () => {
           </div>
         </div>
       </div>
-    </section>
+    </Section>
   );
 };
 
