@@ -50,7 +50,7 @@ const RegisterForm = () => {
           />
         </div>
         <Button type="submit" variant="base" className="w-full">
-          Войти
+          Регистрация
         </Button>
       </form>
     </div>

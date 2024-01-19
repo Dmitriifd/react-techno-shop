@@ -3,10 +3,10 @@ import { products } from '@mock/data';
 
 import { ProductCard } from './ProductCard';
 
-export function Slider() {
+export function Slider({ title }: Readonly<{ title: string }>) {
   return (
     <div>
-      <h2 className="text-2xl font-bold mb-4">Хиты продаж</h2>
+      <h2 className="text-2xl font-bold mb-4">{title}</h2>
       <Carousel
         opts={{
           align: 'start',

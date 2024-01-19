@@ -8,19 +8,28 @@ import { HeaderLogo } from './HeaderLogo';
 import { HeaderSearch } from './HeaderSearch';
 
 const HeaderCenter = () => {
-  const user = false;
+  const user = true;
 
   return (
     <div className="container hidden md:flex items-center bg-white py-1">
       <HeaderLogo />
       <HeaderSearch />
       <div className="flex gap-4">
-        <Link
-          to="/profile"
-          className="border py-3 flex gap-2 rounded-md text-sm p-[18px] transition-colors hover:bg-accent hover:text-accent-foreground">
-          <UserIcon className="fill-[#FE9015]" />
-          {user ? <span className="hidden lg:block">Николай</span> : <span className="hidden lg:block">Войти</span>}
-        </Link>
+        {user ? (
+          <Link
+            to="/profile"
+            className="border py-3 flex gap-2 rounded-md text-sm p-[18px] transition-colors hover:bg-accent hover:text-accent-foreground">
+            <UserIcon className="fill-[#FE9015]" />
+            <span className="hidden lg:block">Николай</span>
+          </Link>
+        ) : (
+          <Link
+            to="/login"
+            className="border py-3 flex gap-2 rounded-md text-sm p-[18px] transition-colors hover:bg-accent hover:text-accent-foreground">
+            <UserIcon className="fill-[#FE9015]" />
+            <span className="hidden lg:block">Войти</span>
+          </Link>
+        )}
         <Link
           to="/cart"
           className="relative border py-3 flex gap-2 rounded-md text-sm p-[18px] transition-colors hover:bg-accent hover:text-accent-foreground">

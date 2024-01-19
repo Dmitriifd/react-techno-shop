@@ -6,6 +6,7 @@ import { CatalogPage } from '@pages/CatalogPage';
 import { HomePage } from '@pages/HomePage';
 import { LoginPage } from '@pages/LoginPage';
 import { ProductPage } from '@pages/ProductPage';
+import { ProfilePage } from '@pages/ProfilePage';
 
 export const router = createBrowserRouter([
   {
@@ -30,8 +31,12 @@ export const router = createBrowserRouter([
         element: <CartPage />,
       },
       {
-        path: '/profile',
+        path: '/login',
         element: <LoginPage />,
+      },
+      {
+        path: '/profile',
+        element: <ProfilePage />,
       },
       { path: '*', element: <h1>404 - Page Not Found</h1> },
     ],

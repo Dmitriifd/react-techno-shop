@@ -10,7 +10,7 @@ const LoginPage = () => {
           <TabsTrigger value="account">Вход</TabsTrigger>
           <TabsTrigger value="password">Регистрация</TabsTrigger>
         </TabsList>
-        <TabsContent value="account" className='pt-5'>
+        <TabsContent value="account" className="pt-5">
           <LoginForm />
         </TabsContent>
         <TabsContent value="password">

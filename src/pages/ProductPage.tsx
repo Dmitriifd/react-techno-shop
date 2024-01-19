@@ -3,6 +3,7 @@ import ArrowRightIcon from '@assets/icons/arrowRight.svg?react';
 import CheckIcon from '@assets/icons/check.svg?react';
 import VanIcon from '@assets/icons/van.svg?react';
 import WatchIcon from '@assets/icons/watch.svg?react';
+import { Slider } from '@components/Slider';
 import { Button } from '@components/ui/button';
 
 const ProductPage = () => {
@@ -84,6 +85,12 @@ const ProductPage = () => {
         </TabsContent>
         <TabsContent value="password">Lorem ipsum dolor sit amet consectetur adipisicing elit. In, ad?</TabsContent>
       </Tabs>
+      <div className="mt-10">
+        <Slider title="Похожие товары" />
+      </div>
+      <div className="mt-10">
+        <Slider title="Рекомендуемые товары" />
+      </div>
     </section>
   );
 };
