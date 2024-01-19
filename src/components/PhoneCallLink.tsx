@@ -1,5 +1,7 @@
 import PhoneIcon from '@assets/icons/phone.svg?react';
 
+import { CallBackModal } from './modals/CallBackModal';
+
 const PhoneCallLink = ({ className }: { className: string }) => {
   return (
     <ul className={className}>
@@ -10,9 +12,7 @@ const PhoneCallLink = ({ className }: { className: string }) => {
         </a>
       </li>
       <li>
-        <a className="text-sm text-accent-base" href="tel:+73534553322">
-          Заказать звонок
-        </a>
+        <CallBackModal />
       </li>
     </ul>
   );
