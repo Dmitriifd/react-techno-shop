@@ -1,10 +1,17 @@
 import DeleteIcon from '@assets/icons/delete.svg?react';
 import MinusIcon from '@assets/icons/minus.svg?react';
 import PlusIcon from '@assets/icons/plus.svg?react';
+import { EmptyCart } from '@components/EmptyCart';
 import { Button } from '@components/ui/button';
 import { Input } from '@components/ui/input';
 
 const CartPage = () => {
+  const isEmpty = true;
+
+  if (isEmpty) {
+    return <EmptyCart />;
+  }
+
   return (
     <section>
       <h2 className="mb-10 text-2xl font-bold">Корзина</h2>
