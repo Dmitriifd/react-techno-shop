@@ -83,21 +83,19 @@ const CartPage = () => {
           </div>
         </div>
         {/* Order */}
-        <div className="ml-auto border p-6 flex flex-col space-y-2 rounded-[5px] max-w-[370px] w-full">
-          <Button variant="base" className="mb-5">
-            Оформить заказ
-          </Button>
+        <div className="ml-auto border p-6 flex flex-col space-y-5 rounded-[5px] max-w-[370px] w-full">
+          <Button variant="base">Оформить заказ</Button>
           <div className="flex gap-x-5">
             <span className="text-sm">4 товара</span>
-            <span className="ml-auto">6890 ₽</span>
+            <span className="ml-auto font-bold">6890 ₽</span>
           </div>
-          <div className="flex gap-x-5">
+          <div className="flex gap-x-5 border-b pb-5">
             <span className="text-sm">Доставка</span>
-            <span className="ml-auto">0 ₽</span>
+            <span className="ml-auto font-bold">0 ₽</span>
           </div>
           <div className="flex gap-x-5">
             <span className="text-sm">Итого</span>
-            <span className="ml-auto">6890 ₽</span>
+            <span className="ml-auto font-bold">6890 ₽</span>
           </div>
         </div>
       </div>
