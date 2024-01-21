@@ -9,7 +9,7 @@ const ProfileLayout = () => {
     <Section>
       <h1 className="mb-10 text-2xl font-bold">Личный кабинет</h1>
 
-      <div className="flex">
+      <div className="flex gap-10">
         <ul className="space-y-4 border-r pr-10">
           <li>
             <Link to=".">Учетная запись</Link>

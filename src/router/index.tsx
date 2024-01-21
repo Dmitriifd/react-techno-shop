@@ -8,6 +8,7 @@ import { CatalogPage } from '@pages/CatalogPage';
 import { HomePage } from '@pages/HomePage';
 import { LoginPage } from '@pages/LoginPage';
 import { ProductPage } from '@pages/ProductPage';
+import { ProfilePage } from '@pages/ProfilePage';
 
 export const router = createBrowserRouter([
   {
@@ -39,7 +40,7 @@ export const router = createBrowserRouter([
         path: '/profile',
         element: <ProfileLayout />,
         children: [
-          { index: true, element: <h1>ProfilePage</h1> },
+          { index: true, element: <ProfilePage /> },
           {
             path: 'address',
             element: <h1>Address</h1>,

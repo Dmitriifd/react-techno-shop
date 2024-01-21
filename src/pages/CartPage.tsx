@@ -7,7 +7,7 @@ import { Input } from '@components/ui/input';
 import { Section } from '@components/ui/section';
 
 const CartPage = () => {
-  const isEmpty = true;
+  const isEmpty = false;
 
   if (isEmpty) {
     return <EmptyCart />;
@@ -33,7 +33,7 @@ const CartPage = () => {
                     <button className="w-[30px] h-[30px] p-2 rounded-md hover:bg-gray-100">
                       <MinusIcon fill="#C8CBD0" />
                     </button>
-                    <Input className="border-none h-[30px] w-[40px] shadow-none" value="1" />
+                    <Input className="border-none h-[30px] w-[40px] shadow-none" defaultValue="1" />
                     <button className="w-[30px] h-[30px] p-2 rounded-md hover:bg-gray-100">
                       <PlusIcon fill="#C8CBD0" />
                     </button>
@@ -68,7 +68,7 @@ const CartPage = () => {
                     <button className="w-[30px] h-[30px] p-2 rounded-md hover:bg-gray-100">
                       <MinusIcon fill="#C8CBD0" />
                     </button>
-                    <Input className="border-none h-[30px] w-[40px] shadow-none" value="1" />
+                    <Input className="border-none h-[30px] w-[40px] shadow-none" defaultValue="1" />
                     <button className="w-[30px] h-[30px] p-2 rounded-md hover:bg-gray-100">
                       <PlusIcon fill="#C8CBD0" />
                     </button>
