@@ -5,7 +5,7 @@ import { Label } from '@components/ui/label';
 const ProfileForm = () => {
   return (
     <div>
-      <h2 className="font-bold mb-5">Личные данные</h2>
+      <h2 className="text-2xl font-bold mb-5">Личные данные</h2>
       <div className="w-[350px]">
         <form className="space-y-5">
           <div>

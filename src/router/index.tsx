@@ -10,6 +10,7 @@ import { LoginPage } from '@pages/LoginPage';
 import { ProductPage } from '@pages/ProductPage';
 import { ProfilePage } from '@pages/profile/ProfilePage';
 import { AddressPage } from '@pages/profile/AddressPage';
+import { OrderPage } from '@pages/profile/OrderPage';
 
 export const router = createBrowserRouter([
   {
@@ -48,7 +49,7 @@ export const router = createBrowserRouter([
           },
           {
             path: 'order',
-            element: <h1>Order</h1>,
+            element: <OrderPage />,
           },
           {
             path: 'password',

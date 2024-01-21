@@ -5,7 +5,7 @@ import { Label } from '@radix-ui/react-label';
 const AddressPage = () => {
   return (
     <div>
-      <h2 className="font-bold mb-5">Адрес</h2>
+      <h2 className="text-2xl font-bold mb-5">Адрес</h2>
 
       <div className="w-[350px]">
         <form className="space-y-5">
