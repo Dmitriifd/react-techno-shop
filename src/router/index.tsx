@@ -8,7 +8,8 @@ import { CatalogPage } from '@pages/CatalogPage';
 import { HomePage } from '@pages/HomePage';
 import { LoginPage } from '@pages/LoginPage';
 import { ProductPage } from '@pages/ProductPage';
-import { ProfilePage } from '@pages/ProfilePage';
+import { ProfilePage } from '@pages/profile/ProfilePage';
+import { AddressPage } from '@pages/profile/AddressPage';
 
 export const router = createBrowserRouter([
   {
@@ -43,7 +44,7 @@ export const router = createBrowserRouter([
           { index: true, element: <ProfilePage /> },
           {
             path: 'address',
-            element: <h1>Address</h1>,
+            element: <AddressPage />,
           },
           {
             path: 'order',
