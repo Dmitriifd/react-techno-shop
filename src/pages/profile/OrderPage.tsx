@@ -11,7 +11,7 @@ const OrderPage = () => {
 
       <ul className="space-y-7">
         <li className="pb-3 border-b">
-          <Link to="." className="flex justify-between">
+          <Link to="5" className="flex justify-between">
             <div className="flex gap-5 items-center">
               <h3 className="text-xl font-bold">Заказ от 11/06/2023</h3>
               <span className="text-sm text-[#848992]">№ 662</span>
@@ -28,7 +28,7 @@ const OrderPage = () => {
           </Button>
         </li>
         <li className="pb-3 border-b">
-          <Link to="." className="flex justify-between">
+          <Link to="6" className="flex justify-between">
             <div className="flex gap-5 items-center">
               <h3 className="text-xl font-bold">Заказ от 11/06/2023</h3>
               <span className="text-sm text-[#848992]">№ 662</span>
@@ -40,12 +40,12 @@ const OrderPage = () => {
             </div>
           </Link>
           <Button variant="link" className="pl-0 text-accent-base flex gap-2 hover:no-underline">
-            <ReloadIcon />
+            <ReloadIcon fill="#FE9015" />
             Повторить заказ
           </Button>
         </li>
         <li className="pb-3 border-b">
-          <Link to="." className="flex justify-between">
+          <Link to="7" className="flex justify-between">
             <div className="flex gap-5 items-center">
               <h3 className="text-xl font-bold">Заказ от 11/06/2023</h3>
               <span className="text-sm text-[#848992]">№ 662</span>
@@ -57,7 +57,7 @@ const OrderPage = () => {
             </div>
           </Link>
           <Button variant="link" className="pl-0 text-accent-base flex gap-2 hover:no-underline">
-            <ReloadIcon />
+            <ReloadIcon fill="#FE9015" />
             Повторить заказ
           </Button>
         </li>

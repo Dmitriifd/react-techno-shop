@@ -15,7 +15,7 @@ const EmptyCart = () => {
         <Link
           to=".."
           className="bg-accent-base p-3 rounded-md text-white text-sm flex items-center justify-center gap-2 max-w-[300px] w-full">
-          <ArrowLeftIcon />
+          <ArrowLeftIcon fill="white" />
           Вернуться назад
         </Link>
       </div>

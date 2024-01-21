@@ -9,6 +9,7 @@ import { HomePage } from '@pages/HomePage';
 import { LoginPage } from '@pages/LoginPage';
 import { ProductPage } from '@pages/ProductPage';
 import { AddressPage } from '@pages/profile/AddressPage';
+import { OrderDetailsPage } from '@pages/profile/OrderDetailsPage';
 import { OrderPage } from '@pages/profile/OrderPage';
 import { PasswordPage } from '@pages/profile/PasswordPage';
 import { ProfilePage } from '@pages/profile/ProfilePage';
@@ -50,7 +51,14 @@ export const router = createBrowserRouter([
           },
           {
             path: 'order',
-            element: <OrderPage />,
+
+            children: [
+              { index: true, element: <OrderPage /> },
+              {
+                path: ':id',
+                element: <OrderDetailsPage />,
+              },
+            ],
           },
           {
             path: 'password',
