@@ -8,9 +8,10 @@ import { CatalogPage } from '@pages/CatalogPage';
 import { HomePage } from '@pages/HomePage';
 import { LoginPage } from '@pages/LoginPage';
 import { ProductPage } from '@pages/ProductPage';
-import { ProfilePage } from '@pages/profile/ProfilePage';
 import { AddressPage } from '@pages/profile/AddressPage';
 import { OrderPage } from '@pages/profile/OrderPage';
+import { PasswordPage } from '@pages/profile/PasswordPage';
+import { ProfilePage } from '@pages/profile/ProfilePage';
 
 export const router = createBrowserRouter([
   {
@@ -53,7 +54,7 @@ export const router = createBrowserRouter([
           },
           {
             path: 'password',
-            element: <h1>Password</h1>,
+            element: <PasswordPage />,
           },
         ],
       },
