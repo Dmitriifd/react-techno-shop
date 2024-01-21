@@ -1,3 +1,4 @@
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { Link } from 'react-router-dom';
 
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
@@ -15,7 +16,14 @@ const ProductCard = ({ title, price, img, id }: ProductCardProps) => {
   return (
     <Card className="flex flex-col h-full">
       <CardHeader className="pt-4 pb-3 mx-auto">
-        <img src={img} alt="honor" width={200} height={200} className="h-[200px] object-contain" />
+        <LazyLoadImage
+          effect="blur"
+          src={img}
+          alt="honor"
+          width={200}
+          height={200}
+          className="h-[200px] object-contain"
+        />
       </CardHeader>
       <CardContent className="flex-auto pb-3">
         <CardTitle className="font-medium text-sm xl:text-[16px]">
