@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import { Button } from '@components/ui/button';
 import { Input } from '@components/ui/input';
 import { Label } from '@components/ui/label';
@@ -6,6 +8,10 @@ import { Section } from '@components/ui/section';
 const ProductAddPage = () => {
   return (
     <Section>
+      <Link to="/admin/products" className="py-2 px-4 bg-black text-white rounded-md mb-5 inline-block">
+        Вернуться назад
+      </Link>
+
       <h1 className="text-2xl font-bold mb-10 text-center">Добавить товар</h1>
 
       <form className="max-w-[550px] mx-auto flex flex-col gap-2">
