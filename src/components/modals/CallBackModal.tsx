@@ -15,9 +15,11 @@ const CallBackModal = () => {
   return (
     <Dialog>
       <DialogTrigger className="text-sm text-accent-base">Заказать звонок</DialogTrigger>
-      <DialogContent>
+      <DialogContent className="max-w-[350px]">
         <DialogHeader className="mb-[35px]">
-          <DialogTitle className="mb-5 text-center">Перезвоним через 27 секунд</DialogTitle>
+          <DialogTitle className="mt-5 mb-5 text-center max-w-[230px] mx-auto leading-6">
+            Перезвоним <br /> через 27 секунд
+          </DialogTitle>
           <DialogDescription>
             <Label>
               <span className="pb-2 inline-block">Телефон</span>
