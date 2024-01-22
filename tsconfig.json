@@ -26,6 +26,6 @@
       "@lib/*": ["src/lib/*"]
     }
   },
-  "include": ["src"],
+  "include": ["src", "src/pages/admin/OrdersListPage.tsx"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
