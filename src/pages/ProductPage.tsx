@@ -3,6 +3,7 @@ import ArrowRightIcon from '@assets/icons/arrowRight.svg?react';
 import CheckIcon from '@assets/icons/check.svg?react';
 import VanIcon from '@assets/icons/van.svg?react';
 import WatchIcon from '@assets/icons/watch.svg?react';
+import { BuyOneClickModal } from '@components/modals/BuyOneClickModal';
 import { Slider } from '@components/Slider';
 import { Button } from '@components/ui/button';
 import { Section } from '@components/ui/section';
@@ -54,9 +55,10 @@ const ProductPage = () => {
               <Button variant="base" className="w-full">
                 Купить
               </Button>
-              <Button variant="outline2" className="w-full text-accent-base">
+              {/* <Button variant="outline2" className="w-full text-accent-base">
                 Купить в 1 клик
-              </Button>
+              </Button> */}
+              <BuyOneClickModal />
             </div>
           </div>
           <ul className="space-y-3">
