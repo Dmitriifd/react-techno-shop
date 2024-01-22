@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Button } from '@components/ui/button';
@@ -6,7 +8,7 @@ import { Input } from '@components/ui/input';
 import { Section } from '@components/ui/section';
 
 const CheckoutPage = () => {
-  const user = false;
+  const [pickup, setPickup] = useState(false);
 
   return (
     <Section>
@@ -45,21 +47,30 @@ const CheckoutPage = () => {
                 <RadioGroup defaultValue="option-one" className="space-y-7">
                   <div className="flex items-start space-x-2">
                     <RadioGroupItem value="option-one" id="option-one" />
-                    <Label htmlFor="option-one" className="cursor-pointer text-base flex flex-col gap-2">
+                    <Label
+                      htmlFor="option-one"
+                      className="cursor-pointer text-base flex flex-col gap-2"
+                      onClick={() => setPickup(false)}>
                       <span className="leading-none">Доставка курьером</span>
                       <span className="text-sm text-[#848992]">по г. Москва, от 5000 рублей - бесплатно</span>
                     </Label>
                   </div>
                   <div className="flex items-start space-x-2">
                     <RadioGroupItem value="option-two" id="option-two" />
-                    <Label htmlFor="option-two" className="cursor-pointer text-base flex flex-col gap-2">
+                    <Label
+                      htmlFor="option-two"
+                      className="cursor-pointer text-base flex flex-col gap-2"
+                      onClick={() => setPickup(!pickup)}>
                       <span className="leading-none">Самовывоз</span>
                       <span className="text-sm text-[#848992]">ул. Выдуманная, 7 - магазин &quot;Техно Shop&quot;</span>
                     </Label>
                   </div>
                   <div className="flex items-start space-x-2">
                     <RadioGroupItem value="option-three" id="option-three" />
-                    <Label htmlFor="option-three" className="cursor-pointer text-base flex flex-col gap-2">
+                    <Label
+                      htmlFor="option-three"
+                      className="cursor-pointer text-base flex flex-col gap-2"
+                      onClick={() => setPickup(false)}>
                       <span className="leading-none">Доставка по РФ</span>
                       <span className="text-sm text-[#848992]">от 5000 рублей (по предоплате) - 0 р.</span>
                     </Label>
@@ -72,22 +83,25 @@ const CheckoutPage = () => {
               </fieldset>
             </div>
             <div className="flex justify-between">
-              <fieldset className="flex flex-col justify-between gap-5 w-[350px]">
-                <legend className="text-2xl font-bold mb-10">Адрес доставки</legend>
-                <Label className="text-sm text-[#848992]">
-                  <span className="inline-block mb-2">Город</span>
-                  <Input type="text" name="name" placeholder="Ваш город" className="placeholder:text-gray-300" />
-                </Label>
-                <Label className="text-sm text-[#848992]">
-                  <span className="inline-block mb-2">Адрес</span>
-                  <Input
-                    type="text"
-                    name="surname"
-                    placeholder="Улица, дом, подъезд"
-                    className="placeholder:text-gray-300"
-                  />
-                </Label>
-              </fieldset>
+              {!pickup && (
+                <fieldset className="flex flex-col justify-between gap-5 w-[350px]">
+                  <legend className="text-2xl font-bold mb-10">Адрес доставки</legend>
+                  <Label className="text-sm text-[#848992]">
+                    <span className="inline-block mb-2">Город</span>
+                    <Input type="text" name="name" placeholder="Ваш город" className="placeholder:text-gray-300" />
+                  </Label>
+                  <Label className="text-sm text-[#848992]">
+                    <span className="inline-block mb-2">Адрес</span>
+                    <Input
+                      type="text"
+                      name="surname"
+                      placeholder="Улица, дом, подъезд"
+                      className="placeholder:text-gray-300"
+                    />
+                  </Label>
+                </fieldset>
+              )}
+
               <fieldset className="flex flex-col justify-between gap-5 w-[550px]">
                 <legend className="text-2xl font-bold mb-10">Комментарий к заказу</legend>
                 <textarea className="w-full border rounded-md min-h-[170px] p-3"></textarea>
