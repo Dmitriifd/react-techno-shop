@@ -22,7 +22,7 @@ const orders = [
 const OrdersListPage = () => {
   return (
     <Section>
-      <h1 className="text-3xl font-bold mb-10">Products</h1>
+      <h1 className="text-3xl font-bold mb-10">Заказы</h1>
 
       <Table>
         <TableHeader>

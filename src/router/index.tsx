@@ -4,6 +4,7 @@ import { AppLayout } from '@components/AppLayout';
 import { ProfileLayout } from '@components/ProfileLayout';
 import { Section } from '@components/ui/section';
 import { OrdersListPage } from '@pages/admin/OrdersListPage';
+import { ProductEditPage } from '@pages/admin/ProductEditPage';
 import { ProductListPage } from '@pages/admin/ProductListPage';
 import { UsersListPage } from '@pages/admin/UsersListPage';
 import { CartPage } from '@pages/CartPage';
@@ -51,6 +52,10 @@ export const router = createBrowserRouter([
       {
         path: '/admin/products',
         element: <ProductListPage />,
+      },
+      {
+        path: '/admin/product/:id/edit',
+        element: <ProductEditPage />,
       },
       {
         path: '/admin/users',

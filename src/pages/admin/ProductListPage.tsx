@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import RemoveIcon from '@assets/icons/delete.svg?react';
 import EditIcon from '@assets/icons/edit.svg?react';
@@ -40,7 +42,7 @@ const ProductListPage = () => {
   return (
     <Section>
       <div className="flex justify-between mb-10">
-        <h1 className="text-3xl font-bold">Products</h1>
+        <h1 className="text-3xl font-bold">Товары</h1>
 
         <Button variant="base">
           <PlusIcon fill="white" className="mr-2" />
@@ -68,9 +70,11 @@ const ProductListPage = () => {
               <TableCell className="text-right">{product.category}</TableCell>
               <TableCell className="text-right">{product.brand}</TableCell>
               <TableCell className="flex gap-2 justify-end">
-                <Button>
-                  <EditIcon />
-                </Button>
+                <Link to={`/admin/product/1/edit`}>
+                  <Button>
+                    <EditIcon />
+                  </Button>
+                </Link>
                 <Button>
                   <RemoveIcon />
                 </Button>
