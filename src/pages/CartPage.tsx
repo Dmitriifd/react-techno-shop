@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import DeleteIcon from '@assets/icons/delete.svg?react';
 import MinusIcon from '@assets/icons/minus.svg?react';
 import PlusIcon from '@assets/icons/plus.svg?react';
@@ -92,7 +94,11 @@ const CartPage = () => {
         </div>
         {/* Order */}
         <div className="ml-auto border p-6 flex flex-col space-y-5 rounded-[5px] max-w-[370px] w-full">
-          <Button variant="base">Оформить заказ</Button>
+          <Link
+            to="/checkout"
+            className="bg-accent-base rounded-md p-2 text-center transition-colors text-white hover:bg-accent-base/90">
+            Оформить заказ
+          </Link>
           <div className="flex gap-x-5">
             <span className="text-sm">4 товара</span>
             <span className="ml-auto font-bold">6890 ₽</span>

@@ -5,6 +5,7 @@ import { ProfileLayout } from '@components/ProfileLayout';
 import { Section } from '@components/ui/section';
 import { CartPage } from '@pages/CartPage';
 import { CatalogPage } from '@pages/CatalogPage';
+import { CheckoutPage } from '@pages/CheckoutPage';
 import { HomePage } from '@pages/HomePage';
 import { LoginPage } from '@pages/LoginPage';
 import { ProductPage } from '@pages/ProductPage';
@@ -39,6 +40,10 @@ export const router = createBrowserRouter([
       {
         path: '/login',
         element: <LoginPage />,
+      },
+      {
+        path: '/checkout',
+        element: <CheckoutPage />,
       },
       {
         path: '/profile',
