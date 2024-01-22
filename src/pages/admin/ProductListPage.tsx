@@ -43,11 +43,12 @@ const ProductListPage = () => {
     <Section>
       <div className="flex justify-between mb-10">
         <h1 className="text-3xl font-bold">Товары</h1>
-
-        <Button variant="base">
-          <PlusIcon fill="white" className="mr-2" />
-          Добавить товар
-        </Button>
+        <Link to={`/admin/product/add`}>
+          <Button variant="base">
+            <PlusIcon fill="white" className="mr-2" />
+            Добавить товар
+          </Button>
+        </Link>
       </div>
 
       <Table>
@@ -75,6 +76,7 @@ const ProductListPage = () => {
                     <EditIcon />
                   </Button>
                 </Link>
+
                 <Button>
                   <RemoveIcon />
                 </Button>

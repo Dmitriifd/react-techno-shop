@@ -3,10 +3,10 @@ import { Input } from '@components/ui/input';
 import { Label } from '@components/ui/label';
 import { Section } from '@components/ui/section';
 
-const ProductEditPage = () => {
+const ProductAddPage = () => {
   return (
     <Section>
-      <h1 className="text-2xl font-bold mb-10 text-center">Редактировать товар</h1>
+      <h1 className="text-2xl font-bold mb-10 text-center">Добавить товар</h1>
 
       <form className="max-w-[550px] mx-auto flex flex-col gap-2">
         <Label className="text-sm text-[#848992]">
@@ -41,10 +41,10 @@ const ProductEditPage = () => {
           <Input type="text" name="description" className="placeholder:text-gray-300" />
         </Label>
 
-        <Button className="mt-5 text-base max-w-[200px]">Обновить</Button>
+        <Button className="mt-5 text-base max-w-[250px]">Добавить товар</Button>
       </form>
     </Section>
   );
 };
 
-export { ProductEditPage };
+export { ProductAddPage };
