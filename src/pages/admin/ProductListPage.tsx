@@ -1,5 +1,16 @@
 import { Link } from 'react-router-dom';
 
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from '@/components/ui/alert-dialog';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import RemoveIcon from '@assets/icons/delete.svg?react';
 import EditIcon from '@assets/icons/edit.svg?react';
@@ -77,9 +88,25 @@ const ProductListPage = () => {
                   </Button>
                 </Link>
 
-                <Button>
-                  <RemoveIcon />
-                </Button>
+                <AlertDialog>
+                  <AlertDialogTrigger asChild>
+                    <Button>
+                      <RemoveIcon />
+                    </Button>
+                  </AlertDialogTrigger>
+                  <AlertDialogContent>
+                    <AlertDialogHeader>
+                      <AlertDialogTitle>Вы уверены, что хотите удалить товар?</AlertDialogTitle>
+                      <AlertDialogDescription>
+                        Это действие нельзя отменить. Это приведет к окончательному удалению товара с наших серверов.
+                      </AlertDialogDescription>
+                    </AlertDialogHeader>
+                    <AlertDialogFooter>
+                      <AlertDialogCancel>Отмена</AlertDialogCancel>
+                      <AlertDialogAction>Удалить</AlertDialogAction>
+                    </AlertDialogFooter>
+                  </AlertDialogContent>
+                </AlertDialog>
               </TableCell>
             </TableRow>
           ))}
