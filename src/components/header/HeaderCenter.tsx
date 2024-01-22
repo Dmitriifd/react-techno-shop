@@ -1,5 +1,11 @@
 import { Link } from 'react-router-dom';
 
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 import BasketIcon from '@assets/icons/basket.svg?react';
 import UserIcon from '@assets/icons/user.svg?react';
 import { MobileMenu } from '@components/MobileMenu';
@@ -39,6 +45,20 @@ const HeaderCenter = () => {
           </span>
           <span className="hidden lg:block">7 777 ₽</span>
         </Link>
+        <DropdownMenu>
+          <DropdownMenuTrigger className="border p-2 px-2 rounded-md text-sm">Admin</DropdownMenuTrigger>
+          <DropdownMenuContent>
+            <DropdownMenuItem asChild>
+              <Link to="/admin/products">Товары</Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <Link to="/admin/orders">Заказы</Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <Link to="/admin/users">Пользователи</Link>
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
         <MobileMenu isHeader />
       </div>
     </div>

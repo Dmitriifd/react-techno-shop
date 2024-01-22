@@ -55,9 +55,6 @@ const ProductPage = () => {
               <Button variant="base" className="w-full">
                 Купить
               </Button>
-              {/* <Button variant="outline2" className="w-full text-accent-base">
-                Купить в 1 клик
-              </Button> */}
               <BuyOneClickModal />
             </div>
           </div>

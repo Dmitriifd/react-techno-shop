@@ -3,6 +3,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import { AppLayout } from '@components/AppLayout';
 import { ProfileLayout } from '@components/ProfileLayout';
 import { Section } from '@components/ui/section';
+import { ProductListPage } from '@pages/admin/ProductListPage';
 import { CartPage } from '@pages/CartPage';
 import { CatalogPage } from '@pages/CatalogPage';
 import { CheckoutPage } from '@pages/CheckoutPage';
@@ -44,6 +45,10 @@ export const router = createBrowserRouter([
       {
         path: '/checkout',
         element: <CheckoutPage />,
+      },
+      {
+        path: '/admin/products',
+        element: <ProductListPage />,
       },
       {
         path: '/profile',
