@@ -49,13 +49,19 @@ const HeaderCenter = () => {
           <DropdownMenuTrigger className="border p-2 px-2 rounded-md text-sm">Admin</DropdownMenuTrigger>
           <DropdownMenuContent>
             <DropdownMenuItem asChild>
-              <Link to="/admin/products">Товары</Link>
+              <Link to="/admin/products" className="cursor-pointer">
+                Товары
+              </Link>
             </DropdownMenuItem>
             <DropdownMenuItem asChild>
-              <Link to="/admin/orders">Заказы</Link>
+              <Link to="/admin/orders" className="cursor-pointer">
+                Заказы
+              </Link>
             </DropdownMenuItem>
             <DropdownMenuItem asChild>
-              <Link to="/admin/users">Пользователи</Link>
+              <Link to="/admin/users" className="cursor-pointer">
+                Пользователи
+              </Link>
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
