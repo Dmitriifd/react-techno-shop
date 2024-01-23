@@ -2,7 +2,7 @@ import { BrandFilter } from '@components/filters/BrandFilter';
 import { FilterPanel } from '@components/filters/FilterPanel';
 import { PriceFilter } from '@components/filters/PriceFilter';
 import { YearsFilter } from '@components/filters/YearsFilter';
-import { ProductCard } from '@components/ProductCard';
+import { ProductCard } from '@components/shared/ProductCard';
 import { Section } from '@components/ui/section';
 const CatalogPage = () => {
   return (

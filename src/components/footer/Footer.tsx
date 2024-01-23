@@ -1,5 +1,5 @@
 import { HeaderNav } from '@components/header/HeaderNav';
-import { PhoneCallLink } from '@components/PhoneCallLink';
+import { PhoneCallLink } from '@components/shared/PhoneCallLink';
 
 const Footer = () => {
   return (

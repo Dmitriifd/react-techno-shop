@@ -1,8 +1,7 @@
 import { NavLink, Outlet } from 'react-router-dom';
 
 import { Button } from '@components/ui/button';
-
-import { Section } from './ui/section';
+import { Section } from '@components/ui/section';
 
 const ProfileLayout = () => {
   return (

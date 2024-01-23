@@ -14,7 +14,7 @@ import {
 import DeleteIcon from '@assets/icons/delete.svg?react';
 import MinusIcon from '@assets/icons/minus.svg?react';
 import PlusIcon from '@assets/icons/plus.svg?react';
-import { EmptyCart } from '@components/EmptyCart';
+import { EmptyCart } from '@components/shared/EmptyCart';
 import { Button } from '@components/ui/button';
 import { Input } from '@components/ui/input';
 import { Section } from '@components/ui/section';

@@ -1,6 +1,5 @@
 import PhoneIcon from '@assets/icons/phone.svg?react';
-
-import { CallBackModal } from './modals/CallBackModal';
+import { CallBackModal } from '@components/modals/CallBackModal';
 
 const PhoneCallLink = ({ className }: { className: string }) => {
   return (

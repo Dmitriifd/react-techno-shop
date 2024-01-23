@@ -1,7 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 
-import { AppLayout } from '@components/AppLayout';
-import { ProfileLayout } from '@components/ProfileLayout';
+import { AppLayout } from '@components/layouts/AppLayout';
+import { ProfileLayout } from '@components/layouts/ProfileLayout';
 import { Section } from '@components/ui/section';
 import { OrdersListPage } from '@pages/admin/OrdersListPage';
 import { ProductAddPage } from '@pages/admin/ProductAddPage';

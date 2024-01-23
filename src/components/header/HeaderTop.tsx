@@ -1,5 +1,5 @@
 import { CityModal } from '@components/modals/CityModal';
-import { PhoneCallLink } from '@components/PhoneCallLink';
+import { PhoneCallLink } from '@components/shared/PhoneCallLink';
 
 import { HeaderLogo } from './HeaderLogo';
 import { HeaderNav } from './HeaderNav';

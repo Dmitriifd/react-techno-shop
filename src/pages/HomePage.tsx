@@ -1,4 +1,4 @@
-import { Slider } from '@components/Slider';
+import { Slider } from '@components/shared/Slider';
 import { Section } from '@components/ui/section';
 
 const HomePage = () => {

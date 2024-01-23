@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import ArrowIcon from '@assets/icons/arrowDown.svg?react';
 import GeoIcon from '@assets/icons/geo.svg?react';
-import { SearchBar } from '@components/SearchBar';
+import { SearchBar } from '@components/forms/SearchBar';
 import { cities } from '@mock/data';
 
 const CityModal = () => {

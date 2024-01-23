@@ -8,7 +8,7 @@ import {
 } from '@/components/ui/dropdown-menu';
 import BasketIcon from '@assets/icons/basket.svg?react';
 import UserIcon from '@assets/icons/user.svg?react';
-import { MobileMenu } from '@components/MobileMenu';
+import { MobileMenu } from '@components/mobile/MobileMenu';
 
 import { HeaderLogo } from './HeaderLogo';
 import { HeaderSearch } from './HeaderSearch';

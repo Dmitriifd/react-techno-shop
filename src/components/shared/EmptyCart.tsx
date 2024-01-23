@@ -1,8 +1,7 @@
 import { Link } from 'react-router-dom';
 
 import ArrowLeftIcon from '@assets/icons/arrowLeft.svg?react';
-
-import { Section } from './ui/section';
+import { Section } from '@components/ui/section';
 
 const EmptyCart = () => {
   return (

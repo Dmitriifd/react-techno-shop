@@ -1,9 +1,9 @@
 import { Outlet } from 'react-router-dom';
 
-import { Breadcrumbs } from './ui/breadcrumbs';
-import { Footer } from './footer';
-import { Header } from './header';
-import { MobileNav } from './MobileNav';
+import { Footer } from '@components/footer';
+import { Header } from '@components/header';
+import { MobileNav } from '@components/mobile/MobileNav';
+import { Breadcrumbs } from '@components/ui/breadcrumbs';
 
 const AppLayout = () => {
   return (

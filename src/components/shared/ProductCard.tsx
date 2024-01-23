@@ -2,8 +2,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { Link } from 'react-router-dom';
 
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-
-import { Button } from './ui/button';
+import { Button } from '@components/ui/button';
 
 type ProductCardProps = {
   title: string;

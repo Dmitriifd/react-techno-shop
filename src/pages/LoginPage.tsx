@@ -1,6 +1,6 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { LoginForm } from '@components/LoginForm';
-import { RegisterForm } from '@components/RegisterForm';
+import { LoginForm } from '@components/forms/LoginForm';
+import { RegisterForm } from '@components/forms/RegisterForm';
 import { Section } from '@components/ui/section';
 
 const LoginPage = () => {

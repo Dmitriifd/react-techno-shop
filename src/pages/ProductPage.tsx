@@ -4,7 +4,7 @@ import CheckIcon from '@assets/icons/check.svg?react';
 import VanIcon from '@assets/icons/van.svg?react';
 import WatchIcon from '@assets/icons/watch.svg?react';
 import { BuyOneClickModal } from '@components/modals/BuyOneClickModal';
-import { Slider } from '@components/Slider';
+import { Slider } from '@components/shared/Slider';
 import { Button } from '@components/ui/button';
 import { Section } from '@components/ui/section';
 
