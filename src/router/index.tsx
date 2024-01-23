@@ -3,6 +3,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import { AppLayout } from '@components/layouts/AppLayout';
 import { ProfileLayout } from '@components/layouts/ProfileLayout';
 import { Section } from '@components/ui/section';
+import { OrderDetailPage } from '@pages/admin/OrderDetailPage';
 import { OrdersListPage } from '@pages/admin/OrdersListPage';
 import { ProductAddPage } from '@pages/admin/ProductAddPage';
 import { ProductEditPage } from '@pages/admin/ProductEditPage';
@@ -69,6 +70,10 @@ export const router = createBrowserRouter([
       {
         path: '/admin/orders',
         element: <OrdersListPage />,
+      },
+      {
+        path: '/admin/orders/:id',
+        element: <OrderDetailPage />,
       },
       {
         path: '/profile',

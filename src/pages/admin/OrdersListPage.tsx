@@ -1,5 +1,6 @@
+import { Link } from 'react-router-dom';
+
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
-import { Button } from '@components/ui/button';
 import { Section } from '@components/ui/section';
 
 const orders = [
@@ -44,7 +45,9 @@ const OrdersListPage = () => {
               <TableCell>{order.paid}</TableCell>
               <TableCell className="text-right">{order.delivered}</TableCell>
               <TableCell className="flex gap-2 justify-end">
-                <Button>Подробнее</Button>
+                <Link to="/admin/orders/1" className="bg-black rounded-md py-1 px-3 text-white hover:bg-black/80">
+                  Подробнее
+                </Link>
               </TableCell>
             </TableRow>
           ))}
