@@ -35,15 +35,9 @@ const ProductCard = ({ title, price, img, id }: ProductCardProps) => {
         </a>
       </CardDescription>
       <CardFooter>
-        {id === 1 ? (
-          <Button variant="outline2" className="w-full">
-            В корзине
-          </Button>
-        ) : (
-          <Button variant="base" className="w-full">
-            Купить
-          </Button>
-        )}
+        <Button variant={id === 1 ? 'outline2' : 'base'} className="w-full">
+          {id === 1 ? 'В корзине ' : 'Купить'}
+        </Button>
       </CardFooter>
     </Card>
   );
