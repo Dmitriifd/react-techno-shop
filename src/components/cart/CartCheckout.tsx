@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 const CartCheckout = () => {
   return (
-    <div className="ml-auto border p-6 flex flex-col space-y-5 rounded-[5px] max-w-[370px] w-full">
+    <div className="ml-auto border p-6 flex flex-col space-y-5 rounded-[5px] xll:max-w-[370px] w-full">
       <Link
         to="/checkout"
         className="bg-accent-base rounded-md p-2 text-center transition-colors text-white hover:bg-accent-base/90">

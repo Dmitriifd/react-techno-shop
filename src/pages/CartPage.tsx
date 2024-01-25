@@ -13,7 +13,7 @@ const CartPage = () => {
   return (
     <Section>
       <h2 className="mb-10 text-2xl font-bold">Корзина</h2>
-      <div className="flex items-start">
+      <div className="flex items-start flex-wrap gap-10">
         <CartProductList />
         <CartCheckout />
       </div>

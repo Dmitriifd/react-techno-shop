@@ -28,7 +28,7 @@ const ProductDetailCard = () => {
   };
 
   return (
-    <div>
+    <>
       <h2 className="text-2xl font-bold mb-7 block lg:hidden">Смартфон Apple iPhone 13 128 ГБ черный</h2>
       <div className="flex gap-8 items-start flex-wrap mb-[50px] lg:flex-row lg:flex-nowrap">
         {/* ProductImage */}
@@ -71,7 +71,7 @@ const ProductDetailCard = () => {
         </div>
         <ProductPrice />
       </div>
-    </div>
+    </>
   );
 };
 
