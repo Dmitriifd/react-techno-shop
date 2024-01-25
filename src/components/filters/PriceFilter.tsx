@@ -1,6 +1,7 @@
 import { useCallback, useState } from 'react';
 
 import { Input } from '@components/ui/input';
+import { Label } from '@components/ui/label';
 import { Slider } from '@components/ui/slider';
 
 const PriceFilter = () => {
@@ -11,15 +12,16 @@ const PriceFilter = () => {
     setMinPrice(value[0]);
     setMaxPrice(value[1]);
   }, []);
+
   return (
     <div className="mb-10">
       <h2 className="font-bold mb-3">Цена</h2>
       <div className="flex gap-3 flex-col">
         <div className="flex gap-3 mb-3">
           <div className="flex items-center relative">
-            <label htmlFor="id1" className="text-sm text-gray-400 absolute left-2">
+            <Label htmlFor="id1" className="text-sm text-gray-400 absolute left-2">
               От
-            </label>
+            </Label>
             <Input
               onChange={(e) => setMinPrice(+e.target.value)}
               placeholder={`От ${minPrice}`}
@@ -31,9 +33,9 @@ const PriceFilter = () => {
             />
           </div>
           <div className="flex items-center relative">
-            <label htmlFor="id2" className="text-sm text-gray-400 absolute left-2">
+            <Label htmlFor="id2" className="text-sm text-gray-400 absolute left-2">
               До
-            </label>
+            </Label>
             <Input
               onChange={(e) => setMaxPrice(+e.target.value)}
               placeholder={`От ${maxPrice}`}

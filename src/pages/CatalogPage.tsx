@@ -4,6 +4,7 @@ import { PriceFilter } from '@components/filters/PriceFilter';
 import { YearsFilter } from '@components/filters/YearsFilter';
 import { ProductCard } from '@components/shared/ProductCard';
 import { Section } from '@components/ui/section';
+
 const CatalogPage = () => {
   return (
     <Section>
@@ -15,9 +16,9 @@ const CatalogPage = () => {
           <YearsFilter />
         </div>
 
-        {/* Products list */}
         <div>
           <FilterPanel />
+          {/* Products list */}
           <div className="grid grid-cols-4 gap-5 flex-wrap">
             {Array.from({ length: 10 }).map((_, index) => (
               <ProductCard key={index} img="/poco7.webp" id={index} title="Poco m5" price={20000} />
