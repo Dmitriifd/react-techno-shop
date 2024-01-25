@@ -6,13 +6,13 @@ import { Button } from '@components/ui/button';
 
 const ProductPrice = () => {
   return (
-    <div className="ml-auto">
-      <div className="border rounded-[5px] p-6 min-w-[270px] mb-6">
-        <div className="mb-5">
+    <div className="ml-0 lg:ml-auto w-full lg:w-fit">
+      <div className="border rounded-[5px] p-6 min-w-[270px] mb-6 flex flex-col items-center gap-5 lg:block md:flex-row">
+        <div className="mb-5 basis-1/2">
           <span className="text-[#EC2525] text-2xl font-bold pr-[10px]">15 990 ₽</span>
           <span className="text-[#848992] line-through">16 990 ₽</span>
         </div>
-        <div className="space-y-5">
+        <div className="space-y-0 flex flex-col items-center gap-5 basis-1/2 lg:block lg:space-y-5 w-full md:w-fit sm2:flex-row">
           <Button variant="base" className="w-full">
             Купить
           </Button>
