@@ -32,7 +32,7 @@ const ShowMore = () => {
       {items.slice(0, visibleItems).map(({ id, label }) => (
         <Label key={id} className="flex gap-3 items-center cursor-pointer w-full">
           <Checkbox />
-          <span className="grow">{label}</span>
+          <span className="md:grow">{label}</span>
         </Label>
       ))}
       <button className="text-sm text-accent-base" onClick={handleToggleVisibility}>

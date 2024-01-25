@@ -14,22 +14,16 @@ type ProductCardProps = {
 const ProductCard = ({ title, price, img, id }: ProductCardProps) => {
   return (
     <Card className="flex flex-col h-full">
-      <CardHeader className="pt-4 pb-3 mx-auto">
-        <LazyLoadImage
-          effect="blur"
-          src={img}
-          alt="honor"
-          width={200}
-          height={200}
-          className="h-[200px] object-contain"
-        />
+      <CardHeader className="p-6 w-[200px] h-[200px] mx-auto">
+        <LazyLoadImage effect="blur" src={img} alt="honor" className="max-w-full max-h-[200px] object-contain" />
       </CardHeader>
+
       <CardContent className="flex-auto pb-3">
         <CardTitle className="font-medium text-sm xl:text-[16px]">
           <Link to="/product">{title}</Link>
         </CardTitle>
       </CardContent>
-      <CardDescription className="px-6 pb-3 ">
+      <CardDescription className="px-6 pb-3">
         <a href="/" className="font-bold text-xl">
           {price} ₽
         </a>

@@ -30,15 +30,15 @@ const YearsFilter = () => {
       <CollapsibleContent className="space-y-2 pt-3">
         <Label className="flex gap-3 items-center cursor-pointer">
           <Checkbox />
-          <span className="grow">2024</span>
+          <span className="md:grow">2024</span>
         </Label>
         <Label className="flex gap-3 items-center cursor-pointer">
           <Checkbox />
-          <span className="grow">2023</span>
+          <span className="md:grow">2023</span>
         </Label>
         <Label className="flex gap-3 items-center cursor-pointer">
           <Checkbox />
-          <span className="grow">2022</span>
+          <span className="md:grow">2022</span>
         </Label>
       </CollapsibleContent>
     </Collapsible>
