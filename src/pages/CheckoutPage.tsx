@@ -17,8 +17,8 @@ const CheckoutPage = () => {
       <form>
         <div>
           <div className="flex flex-col mb-16">
-            <div className="flex justify-between mb-16">
-              <fieldset className="flex flex-col justify-between gap-5 w-[350px]">
+            <div className="flex tablet:justify-between flex-col mb-16 gap-10 lg:gap-0 tablet:flex-row">
+              <fieldset className="flex flex-col justify-between gap-5 tablet:max-w-[350px] w-full">
                 <legend className="text-2xl font-bold mb-10">Покупатель</legend>
                 <Label className="text-sm text-[#848992]">
                   <span className="inline-block mb-2">Имя</span>
@@ -42,7 +42,7 @@ const CheckoutPage = () => {
                   <Input type="email" name="email" className="placeholder:text-gray-300" placeholder="email@mail.ru" />
                 </Label>
               </fieldset>
-              <fieldset className="flex flex-col gap-10 w-[550px] ">
+              <fieldset className="flex flex-col gap-10 lg:w-[550px] ">
                 <legend className="text-2xl font-bold mb-10">Способ доставки</legend>
                 <RadioGroup defaultValue="option-one" className="space-y-7">
                   <div className="flex items-start space-x-2">
@@ -82,9 +82,9 @@ const CheckoutPage = () => {
                 </div>
               </fieldset>
             </div>
-            <div className="flex justify-between">
+            <div className="flex justify-between flex-col gap-10 lg:gap-0 tablet:flex-row">
               {!pickup && (
-                <fieldset className="flex flex-col justify-between gap-5 w-[350px]">
+                <fieldset className="flex flex-col justify-between gap-5 tablet:max-w-[350px] w-full">
                   <legend className="text-2xl font-bold mb-10">Адрес доставки</legend>
                   <Label className="text-sm text-[#848992]">
                     <span className="inline-block mb-2">Город</span>
@@ -102,16 +102,16 @@ const CheckoutPage = () => {
                 </fieldset>
               )}
 
-              <fieldset className="flex flex-col justify-between gap-5 w-[550px]">
+              <fieldset className="flex flex-col justify-between gap-5 tablet:w-[550px]">
                 <legend className="text-2xl font-bold mb-10">Комментарий к заказу</legend>
                 <textarea className="w-full border rounded-md min-h-[170px] p-3"></textarea>
               </fieldset>
             </div>
           </div>
         </div>
-        <div className="pt-7 border-t flex justify-between">
-          <p className="text-2xl font-bold">Сумма заказа: 7500 ₽</p>
-          <div className="flex gap-10">
+        <div className="pt-7 border-t flex flex-col flex-wrap justify-center gap-5 md:justify-between md:flex-row">
+          <p className="text-xl font-bold lg:text-2xl">Сумма заказа: 7500 ₽</p>
+          <div className="flex flex-wrap gap-10">
             <fieldset className="flex items-start gap-2 text-sm">
               <Checkbox defaultChecked id="agree" name="agree" />
               <Label htmlFor="agree" className="w-[200px] inline-block cursor-pointer">
@@ -119,7 +119,7 @@ const CheckoutPage = () => {
                 <span className="text-accent-base">Условиями соглашения</span>
               </Label>
             </fieldset>
-            <Button variant="base">Подтвердить заказ</Button>
+            <Button variant="base" className='w-full md:w-fit'>Подтвердить заказ</Button>
           </div>
         </div>
       </form>
