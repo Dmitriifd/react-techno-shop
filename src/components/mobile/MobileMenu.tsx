@@ -23,7 +23,7 @@ const MobileMenu = ({ isHeader = false, title }: { isHeader: boolean; title?: st
           </Button>
         )}
       </SheetTrigger>
-      <SheetContent className="w-[400px] sm:w-[540px] pt-10 pl-10">
+      <SheetContent className="max-w-[320px] md:min-w-[400px] pt-12 pl-10">
         <ul className="space-y-5">
           {bottomNavLink.map(({ id, title, url, icon }) => (
             <li key={id} className="text-xl ">
