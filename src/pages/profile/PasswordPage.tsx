@@ -7,7 +7,7 @@ const PasswordPage = () => {
     <div>
       <h2 className="text-2xl font-bold mb-5">Смена пароля</h2>
 
-      <div className="w-[350px]">
+      <div className="sm2:w-[350px]">
         <form className="space-y-5">
           <div>
             <Label htmlFor="password" className="text-[#848992] text-sm inline-block mb-2">

@@ -8,8 +8,8 @@ const ProfileLayout = () => {
     <Section>
       <h1 className="mb-10 text-2xl font-bold">Личный кабинет</h1>
 
-      <div className="flex gap-10">
-        <ul className="space-y-4 border-r pr-10">
+      <div className="flex gap-10 flex-col md:flex-row">
+        <ul className="space-y-4 md:border-r pr-10">
           <li>
             <NavLink end to="." className={({ isActive }) => (isActive ? 'font-bold' : '')}>
               Учетная запись

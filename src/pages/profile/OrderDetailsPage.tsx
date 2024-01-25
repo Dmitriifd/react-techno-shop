@@ -15,9 +15,9 @@ const OrderDetailsPage = () => {
       </Link>
 
       <div>
-        <div className="flex justify-between mb-10">
+        <div className="flex justify-between mb-10 flex-col gap-5 sm2:flex-row sm2:gap-2">
           <div className="flex gap-5 items-center">
-            <h3 className="text-2xl font-bold">Заказ от 11/06/2023</h3>
+            <h3 className="text-xl font-bold tablet:text-2xl ">Заказ от 11/06/2023</h3>
             <span className="text-sm text-[#848992]">№ 662</span>
           </div>
 
@@ -33,15 +33,13 @@ const OrderDetailsPage = () => {
           <li className="pb-[30px] border-b last:border-b-0">
             <div className="flex">
               <div className="mr-5">
-                <img className="w-[100px] h-[100px] " src="/poco7.webp" alt="poco" />
+                <img className="w-[100px] h-[100px] object-contain" src="/poco7.webp" alt="poco" />
               </div>
-              <div className="flex justify-between grow">
-                <div>
-                  <h2 className="max-w-[350px]">Смартфон Apple iPhone 13 128 ГБ черный</h2>
-                </div>
+              <div className="flex justify-between flex-col gap-1 grow lg:flex-row">
+                <h2 className="max-w-[350px]">Смартфон Apple iPhone 13 128 ГБ черный</h2>
                 <div className="flex gap-10">
                   <span className="text-sm">1шт</span>
-                  <div className="">
+                  <div className="flex gap-2 items-center lg:block">
                     <p className="text-xl font-bold text-[#EC2525]">1 000 ₽</p>
                     <span className="text-sm text-[#848992] line-through">2 000 ₽</span>
                   </div>
@@ -49,38 +47,7 @@ const OrderDetailsPage = () => {
                 <TooltipProvider delayDuration={200}>
                   <Tooltip>
                     <TooltipTrigger asChild>
-                      <Button variant="base" className="">
-                        <AddCartIcon />
-                      </Button>
-                    </TooltipTrigger>
-                    <TooltipContent className="bg-white text-black shadow mb-1">
-                      <p>Добавить в корзину</p>
-                    </TooltipContent>
-                  </Tooltip>
-                </TooltipProvider>
-              </div>
-            </div>
-          </li>
-          <li className="pb-[30px] border-b last:border-b-0">
-            <div className="flex">
-              <div className="mr-5">
-                <img className="w-[100px] h-[100px] " src="/poco7.webp" alt="poco" />
-              </div>
-              <div className="flex justify-between grow">
-                <div>
-                  <h2 className="max-w-[350px]">Смартфон Apple iPhone 13 128 ГБ черный</h2>
-                </div>
-                <div className="flex gap-10">
-                  <span className="text-sm">1шт</span>
-                  <div className="">
-                    <p className="text-xl font-bold text-[#EC2525]">1 000 ₽</p>
-                    <span className="text-sm text-[#848992] line-through">2 000 ₽</span>
-                  </div>
-                </div>
-                <TooltipProvider delayDuration={200}>
-                  <Tooltip>
-                    <TooltipTrigger asChild>
-                      <Button variant="base" className="">
+                      <Button variant="base" className="sm2:w-fit">
                         <AddCartIcon />
                       </Button>
                     </TooltipTrigger>

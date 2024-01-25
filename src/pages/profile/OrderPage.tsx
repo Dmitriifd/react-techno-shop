@@ -11,55 +11,67 @@ const OrderPage = () => {
 
       <ul className="space-y-7">
         <li className="pb-3 border-b">
-          <Link to="5" className="flex justify-between">
-            <div className="flex gap-5 items-center">
-              <h3 className="text-xl font-bold">Заказ от 11/06/2023</h3>
-              <span className="text-sm text-[#848992]">№ 662</span>
+          <Link to="5" className="flex justify-between gap-10 items-start">
+            <div className="flex gap-5 flex-col items-start">
+              <div className="flex gap-3">
+                <h3 className="text-base font-bold lg:text-xl">
+                  <span className="hidden sm2:inline-block">Заказ от</span> 11/06/2023
+                </h3>
+                <span className="text-sm text-[#848992]">№ 662</span>
+              </div>
+              <Button variant="link" className="pl-0 text-[#EC2525] flex gap-2 hover:no-underline">
+                <CloseIcon fill="#EC2525" />
+                Отменить заказ
+              </Button>
             </div>
-            <div className="flex items-center gap-[30px]">
+            <div className="flex items-end gap-1 flex-wrap flex-col-reverse tablet:flex-row tablet:gap-[30px] tablet:items-center">
               <span className="text-[#219653] font-bold">В обработке</span>
               <span className="text-sm">3 товара</span>
-              <span className="text-xl font-bold">5655 ₽</span>
+              <span className="text-base font-bold lg:text-xl">5655 ₽</span>
             </div>
           </Link>
-          <Button variant="link" className="pl-0 text-[#EC2525] flex gap-2 hover:no-underline">
-            <CloseIcon fill="#EC2525" />
-            Отменить заказ
-          </Button>
         </li>
         <li className="pb-3 border-b">
-          <Link to="6" className="flex justify-between">
-            <div className="flex gap-5 items-center">
-              <h3 className="text-xl font-bold">Заказ от 11/06/2023</h3>
-              <span className="text-sm text-[#848992]">№ 662</span>
+          <Link to="6" className="flex justify-between gap-10 items-start">
+            <div className="flex gap-5 flex-col items-start">
+              <div className="flex gap-3">
+                <h3 className="text-base font-bold lg:text-xl">
+                  <span className="hidden sm2:inline-block">Заказ от</span> 11/06/2023
+                </h3>
+                <span className="text-sm text-[#848992]">№ 662</span>
+              </div>
+              <Button variant="link" className="pl-0 text-accent-base flex gap-2 hover:no-underline">
+                <ReloadIcon fill="#FE9015" />
+                Повторить заказ
+              </Button>
             </div>
-            <div className="flex items-center gap-[30px]">
+            <div className="flex items-end gap-1 flex-wrap flex-col-reverse tablet:flex-row tablet:gap-[30px] tablet:items-center">
               <span className="text-[#219653] text-sm font-medium">Доставлен</span>
               <span className="text-sm">3 товара</span>
-              <span className="text-xl font-bold">5655 ₽</span>
+              <span className="text-base font-bold lg:text-xl">5655 ₽</span>
             </div>
           </Link>
-          <Button variant="link" className="pl-0 text-accent-base flex gap-2 hover:no-underline">
-            <ReloadIcon fill="#FE9015" />
-            Повторить заказ
-          </Button>
         </li>
         <li className="pb-3 border-b">
-          <Link to="7" className="flex justify-between">
-            <div className="flex gap-5 items-center">
-              <h3 className="text-xl font-bold">Заказ от 11/06/2023</h3>
-              <span className="text-sm text-[#848992]">№ 662</span>
+          <Link to="7" className="flex justify-between gap-10 items-start">
+            <div className="flex gap-5 flex-col items-start">
+              <div className="flex gap-3">
+                <h3 className="text-base font-bold lg:text-xl">
+                  <span className="hidden sm2:inline-block">Заказ от</span> 11/06/2023
+                </h3>
+                <span className="text-sm text-[#848992]">№ 662</span>
+              </div>
+              <Button variant="link" className="pl-0 text-accent-base flex gap-2 hover:no-underline">
+                <ReloadIcon fill="#FE9015" />
+                Повторить заказ
+              </Button>
             </div>
-            <div className="flex items-center gap-[30px]">
+            <div className="flex items-end gap-1 flex-wrap flex-col-reverse tablet:flex-row tablet:gap-[30px] tablet:items-center">
               <span className="text-sm text-[#EC2525] font-medium">Отменен</span>
               <span className="text-sm">3 товара</span>
-              <span className="text-xl font-bold">5655 ₽</span>
+              <span className="text-base font-bold lg:text-xl">5655 ₽</span>
             </div>
           </Link>
-          <Button variant="link" className="pl-0 text-accent-base flex gap-2 hover:no-underline">
-            <ReloadIcon fill="#FE9015" />
-            Повторить заказ
-          </Button>
         </li>
       </ul>
     </div>
