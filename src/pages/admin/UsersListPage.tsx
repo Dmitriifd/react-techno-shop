@@ -21,7 +21,7 @@ const UsersListPage = () => {
     <Section>
       <h1 className="text-3xl font-bold mb-10">Пользователи</h1>
 
-      <Table>
+      <Table className="min-w-[550px]">
         <TableHeader>
           <TableRow className="text-base">
             <TableHead className="w-[100px] font-bold">ID</TableHead>

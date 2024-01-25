@@ -10,7 +10,7 @@ const OrderDetailPage = () => {
     <Section>
       <h1 className="text-3xl font-bold mb-6">Заказ - # id</h1>
 
-      <div className="flex gap-10 items-start">
+      <div className="flex gap-10 flex-col md:items-start md:flex-row">
         <div className="grow">
           <div className="flex flex-col gap-2 mb-5 pb-5">
             <h2 className="text-2xl font-bold mb-5 text-gray-500">Доставка</h2>
@@ -48,7 +48,7 @@ const OrderDetailPage = () => {
             <h2 className="text-2xl font-bold mb-5 text-gray-500">Товары заказа</h2>
             <div>
               <Link to="">
-                <div className="flex gap-5">
+                <div className="flex gap-5 flex-wrap">
                   <img width={50} height={50} src="/honor3.webp" alt="" />
                   <p>Honor MagicBook 14</p>
                   <p>1 x 5000 ₽</p>

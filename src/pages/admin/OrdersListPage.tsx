@@ -25,7 +25,7 @@ const OrdersListPage = () => {
     <Section>
       <h1 className="text-3xl font-bold mb-10">Заказы</h1>
 
-      <Table>
+      <Table className="min-w-[740px]">
         <TableHeader>
           <TableRow className="text-base">
             <TableHead className="w-[100px] font-bold">ID</TableHead>

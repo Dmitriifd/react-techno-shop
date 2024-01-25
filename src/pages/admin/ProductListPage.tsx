@@ -62,7 +62,7 @@ const ProductListPage = () => {
         </Link>
       </div>
 
-      <Table>
+      <Table className="min-w-[740px]">
         <TableHeader>
           <TableRow className="text-base">
             <TableHead className="w-[100px] font-bold">ID</TableHead>
