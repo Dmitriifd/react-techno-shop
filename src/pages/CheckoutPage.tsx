@@ -119,7 +119,9 @@ const CheckoutPage = () => {
                 <span className="text-accent-base">Условиями соглашения</span>
               </Label>
             </fieldset>
-            <Button variant="base" className='w-full md:w-fit'>Подтвердить заказ</Button>
+            <Button variant="base" className="w-full md:w-fit">
+              Подтвердить заказ
+            </Button>
           </div>
         </div>
       </form>

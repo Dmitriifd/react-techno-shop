@@ -1,6 +1,5 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
-import SearchIcon from '@assets/icons/search.svg?react';
 import { mobileNavLink } from '@mock/data';
 
 import { MobileMenu } from './MobileMenu';
@@ -14,19 +13,19 @@ const MobileNav = () => {
             {isMenu ? (
               <MobileMenu isHeader={false} title={title} />
             ) : (
-              <Link
+              <NavLink
                 to={url}
-                className="p-2 flex flex-col gap-1 items-center justify-center text-[#B5BBC4] text-xs w-[60px] h-[60px]">
+                className={({ isActive }) =>
+                  isActive
+                    ? 'text-accent-base p-2 flex flex-col gap-1 items-center justify-center text-xs w-[60px] h-[60px]'
+                    : 'p-2 flex flex-col gap-1 items-center justify-center text-[#B5BBC4] text-xs w-[60px] h-[60px]'
+                }>
                 {icon}
                 <span>{title}</span>
-              </Link>
+              </NavLink>
             )}
           </li>
         ))}
-        <button className="p-2 flex flex-col gap-1 items-center justify-center text-[#B5BBC4] text-xs w-[60px] h-[60px]">
-          <SearchIcon fill="#B5BBC4" />
-          <span>Поиск</span>
-        </button>
       </ul>
     </nav>
   );

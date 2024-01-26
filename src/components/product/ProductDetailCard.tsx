@@ -2,21 +2,22 @@ import { useState } from 'react';
 
 import ArrowRightIcon from '@assets/icons/arrowRight.svg?react';
 import { Button } from '@components/ui/button';
+import { cn } from '@lib/utils';
 
 import { ProductPrice } from './ProductPrice';
 
 const colors = [
   {
     id: 1,
-    color: 'black',
+    color: 'bg-black',
   },
   {
     id: 2,
-    color: 'red-500',
+    color: 'bg-red-500',
   },
   {
     id: 3,
-    color: 'green-500',
+    color: 'bg-green-500',
   },
 ];
 
@@ -45,9 +46,10 @@ const ProductDetailCard = () => {
               {colors.map(({ id, color }, index) => (
                 <Button
                   key={id}
-                  className={`w-[30px] h-[30px] bg-${color} outline-offset-4 outline ${
-                    activeButton === index ? 'outline-accent-base' : ''
-                  }  outline-2 hover:bg-${color}/90`}
+                  className={cn(
+                    `w-[30px] h-[30px] ${color} outline-offset-4 outline outline-2 hover:${color}/80`,
+                    activeButton === index ? 'outline-accent-base' : '',
+                  )}
                   onClick={() => handleChangeColor(index)}
                 />
               ))}
