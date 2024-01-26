@@ -20,7 +20,7 @@ const Breadcrumbs = () => {
   }
 
   return (
-    <nav className="container">
+    <nav className="container mt-7">
       <ul className=" flex gap-1 items-center text-xs text-gray-900">
         <li>
           <Link to="/">Главная</Link>

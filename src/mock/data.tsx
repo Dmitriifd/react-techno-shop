@@ -9,32 +9,32 @@ export const topNavLink = [
   {
     id: uuidv4(),
     title: 'О нас',
-    url: '/about',
+    url: '',
   },
   {
     id: uuidv4(),
     title: 'Доставка и оплата',
-    url: '/delivery',
+    url: '',
   },
   {
     id: uuidv4(),
     title: 'Вопросы и ответы',
-    url: '/questions',
+    url: '',
   },
   {
     id: uuidv4(),
     title: 'Отзывы',
-    url: '/reviews',
+    url: '',
   },
   {
     id: uuidv4(),
     title: 'Статьи',
-    url: '/articles',
+    url: '',
   },
   {
     id: uuidv4(),
     title: 'Контакты',
-    url: '/contacts',
+    url: '',
   },
 ];
 

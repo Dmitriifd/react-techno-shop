@@ -7,7 +7,7 @@ const ProductTabs = () => {
         <TabsTrigger value="account" className="text-base lg:text-xl">
           Описание
         </TabsTrigger>
-        <TabsTrigger value="password" className="text-base lg:text-xl">
+        <TabsTrigger id="char" value="password" className="text-base lg:text-xl">
           Характеристики
         </TabsTrigger>
       </TabsList>

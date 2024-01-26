@@ -65,10 +65,10 @@ const ProductDetailCard = () => {
               <li>Сканер отпечатка пальцев: сбоку;</li>
               <li>Размеры (ШхВхТ): 72.4 х 156.9 х 11.08 мм;</li>
             </ul>
-            <Button variant="link" className="text-accent-base pl-0">
+            <a href="#char" className="flex gap-2  items-center text-accent-base pl-0">
               Все характеристики
               <ArrowRightIcon fill="#FE9015" width={18} height={18} />
-            </Button>
+            </a>
           </div>
         </div>
         <ProductPrice />

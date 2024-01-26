@@ -15,7 +15,9 @@ const ProductCard = ({ title, price, img, id }: ProductCardProps) => {
   return (
     <Card className="flex flex-col h-full">
       <CardHeader className="p-6 w-[200px] h-[200px] mx-auto">
-        <LazyLoadImage effect="blur" src={img} alt="honor" className="max-w-full max-h-[200px] object-contain" />
+        <Link to="/product">
+          <LazyLoadImage effect="blur" src={img} alt="honor" className="max-w-full max-h-[200px] object-contain" />
+        </Link>
       </CardHeader>
 
       <CardContent className="flex-auto pb-3">
@@ -24,9 +26,9 @@ const ProductCard = ({ title, price, img, id }: ProductCardProps) => {
         </CardTitle>
       </CardContent>
       <CardDescription className="px-6 pb-3">
-        <a href="/" className="font-bold text-xl">
+        <Link to="/product" className="font-bold text-xl">
           {price} ₽
-        </a>
+        </Link>
       </CardDescription>
       <CardFooter>
         <Button variant={id === 1 ? 'outline2' : 'base'} className="w-full">
