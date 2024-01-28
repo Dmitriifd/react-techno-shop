@@ -1,7 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
 
 import { AppLayout } from '@components/layouts/AppLayout';
-import { ProfileLayout } from '@components/layouts/ProfileLayout';
 import { Section } from '@components/ui/section';
 import { OrderDetailPage } from '@pages/admin/OrderDetailPage';
 import { OrdersListPage } from '@pages/admin/OrdersListPage';
@@ -20,6 +19,9 @@ import { OrderDetailsPage } from '@pages/profile/OrderDetailsPage';
 import { OrderPage } from '@pages/profile/OrderPage';
 import { PasswordPage } from '@pages/profile/PasswordPage';
 import { ProfilePage } from '@pages/profile/ProfilePage';
+
+import { AdminRoute } from './AdminRoute';
+import { PrivateRoute } from './PrivateRoute';
 
 export const router = createBrowserRouter([
   {
@@ -51,33 +53,40 @@ export const router = createBrowserRouter([
         path: '/checkout',
         element: <CheckoutPage />,
       },
+
       {
-        path: '/admin/products',
-        element: <ProductListPage />,
-      },
-      {
-        path: '/admin/product/:id/edit',
-        element: <ProductEditPage />,
-      },
-      {
-        path: '/admin/product/add',
-        element: <ProductAddPage />,
-      },
-      {
-        path: '/admin/users',
-        element: <UsersListPage />,
-      },
-      {
-        path: '/admin/orders',
-        element: <OrdersListPage />,
-      },
-      {
-        path: '/admin/orders/:id',
-        element: <OrderDetailPage />,
+        path: '',
+        element: <AdminRoute />,
+        children: [
+          {
+            path: '/admin/products',
+            element: <ProductListPage />,
+          },
+          {
+            path: '/admin/product/:id/edit',
+            element: <ProductEditPage />,
+          },
+          {
+            path: '/admin/product/add',
+            element: <ProductAddPage />,
+          },
+          {
+            path: '/admin/users',
+            element: <UsersListPage />,
+          },
+          {
+            path: '/admin/orders',
+            element: <OrdersListPage />,
+          },
+          {
+            path: '/admin/orders/:id',
+            element: <OrderDetailPage />,
+          },
+        ],
       },
       {
         path: '/profile',
-        element: <ProfileLayout />,
+        element: <PrivateRoute />,
         children: [
           { index: true, element: <ProfilePage /> },
           {

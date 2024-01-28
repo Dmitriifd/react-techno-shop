@@ -11,10 +11,10 @@ export const useProfilePage = () => {
   const userInfo = useAuthStore((state) => state.userInfo);
 
   useEffect(() => {
-    if (!userInfo) {
-      logout();
-      navigate('/login');
-    }
+    // if (!userInfo) {
+    //   logout();
+    //   navigate('/login');
+    // }
 
     ProfileService.getProfile().then((res) => {
       console.log(res);
