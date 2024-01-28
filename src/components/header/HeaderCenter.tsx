@@ -3,25 +3,26 @@ import { Link } from 'react-router-dom';
 import BasketIcon from '@assets/icons/basket.svg?react';
 import UserIcon from '@assets/icons/user.svg?react';
 import { MobileMenu } from '@components/mobile/MobileMenu';
+import { useAuthStore } from '@store/auth/useAuth';
 
 import { AdminDropDown } from './AdminDropDown';
 import { HeaderLogo } from './HeaderLogo';
 import { HeaderSearch } from './HeaderSearch';
 
 const HeaderCenter = () => {
-  const user = false;
+  const userInfo = useAuthStore((state) => state.userInfo);
 
   return (
     <div className="container hidden md:flex items-center bg-white py-1">
       <HeaderLogo />
       <HeaderSearch />
       <div className="flex gap-4">
-        {user ? (
+        {userInfo ? (
           <Link
             to="/profile"
             className="border py-3 flex gap-2 rounded-md text-sm p-[18px] transition-colors hover:bg-accent text-accent-base">
             <UserIcon />
-            <span className="hidden lg:block text-black">Николай</span>
+            <span className="hidden lg:block text-black">{userInfo.name}</span>
           </Link>
         ) : (
           <Link
@@ -40,7 +41,7 @@ const HeaderCenter = () => {
           </span>
           <span className="hidden lg:block text-black">7 777 ₽</span>
         </Link>
-        <AdminDropDown />
+        {userInfo?.isAdmin && <AdminDropDown />}
         <MobileMenu isHeader />
       </div>
     </div>
