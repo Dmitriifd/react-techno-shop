@@ -1,5 +1,6 @@
 import { Outlet } from 'react-router-dom';
 
+import { Toaster } from '@/components/ui/toaster';
 import { Footer } from '@components/footer';
 import { Header } from '@components/header';
 import { MobileNav } from '@components/mobile/MobileNav';
@@ -13,6 +14,7 @@ const AppLayout = () => {
       <main className="flex-auto">
         <Outlet />
       </main>
+      <Toaster />
       <MobileNav />
       <Footer />
     </div>
