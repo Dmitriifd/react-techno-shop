@@ -23,10 +23,9 @@ export const useProfilePage = () => {
 
   const handleLogout = async () => {
     try {
-      const res = await AuthService.logout();
+      await AuthService.logout();
       logout();
       navigate('/');
-      console.log(res);
     } catch (error) {
       console.log(error);
     }

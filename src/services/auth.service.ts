@@ -1,11 +1,11 @@
 import { api } from './api-client';
 
-export interface AuthResponse {
+type AuthResponse = {
   _id: string;
   email: string;
   isAdmin: boolean;
   name: string;
-}
+};
 
 type AuthData = {
   name: string;
@@ -17,14 +17,14 @@ type AuthLoginData = Omit<AuthData, 'name'>;
 
 const login = async (data: AuthLoginData) => {
   const { password, email } = data;
-  const response = await api.post('/users/auth', { email, password });
+  const response = await api.post<AuthResponse>('/users/auth', { email, password });
 
   return response.data;
 };
 
 const register = async (data: AuthData) => {
   const { name, password, email } = data;
-  const response = await api.post('/users', { email, password, name });
+  const response = await api.post<AuthResponse>('/users', { email, password, name });
 
   return response.data;
 };
