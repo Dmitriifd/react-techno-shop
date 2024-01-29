@@ -1,12 +1,6 @@
+import { UserInfo } from 'types/user';
 import { create } from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
-
-type UserInfo = {
-  name: string;
-  email: string;
-  isAdmin: boolean;
-  _id: string;
-};
 
 type AuthStore = {
   userInfo: UserInfo | null;

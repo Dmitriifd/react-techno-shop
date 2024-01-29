@@ -8,13 +8,14 @@ import { useAuthStore } from '@store/auth/useAuth';
 export const useProfilePage = () => {
   const navigate = useNavigate();
   const logout = useAuthStore((state) => state.logout);
-  const userInfo = useAuthStore((state) => state.userInfo);
+  const setCredentials = useAuthStore((state) => state.setCredentials);
 
   useEffect(() => {
     ProfileService.getProfile().then((res) => {
+      setCredentials(res);
       console.log(res);
     });
-  }, [userInfo, navigate, logout]);
+  }, [setCredentials]);
 
   const handleLogout = async () => {
     try {
