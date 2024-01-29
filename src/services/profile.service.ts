@@ -11,6 +11,7 @@ type UpdateProfileData = {
     city?: string;
     street?: string;
   };
+  password?: string;
 };
 
 const getProfile = async () => {
