@@ -3,10 +3,14 @@ import { UserInfo } from 'types/user';
 import { api } from './api-client';
 
 type UpdateProfileData = {
-  name: string;
-  surname: string;
-  phone: string;
-  email: string;
+  name?: string;
+  surname?: string;
+  phone?: string;
+  email?: string;
+  address?: {
+    city?: string;
+    street?: string;
+  };
 };
 
 const getProfile = async () => {

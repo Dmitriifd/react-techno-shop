@@ -13,7 +13,6 @@ export const useProfilePage = () => {
   useEffect(() => {
     ProfileService.getProfile().then((res) => {
       setCredentials(res);
-      console.log(res);
     });
   }, [setCredentials]);
 
