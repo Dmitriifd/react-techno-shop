@@ -4,6 +4,7 @@ import { Toaster } from '@/components/ui/toaster';
 import { Footer } from '@components/footer';
 import { Header } from '@components/header';
 import { MobileNav } from '@components/mobile/MobileNav';
+import { TailwindIndicator } from '@components/shared/TailwindIndicator';
 import { Breadcrumbs } from '@components/ui/breadcrumbs';
 
 const AppLayout = () => {
@@ -15,6 +16,7 @@ const AppLayout = () => {
         <Outlet />
       </main>
       <Toaster />
+      <TailwindIndicator />
       <MobileNav />
       <Footer />
     </div>

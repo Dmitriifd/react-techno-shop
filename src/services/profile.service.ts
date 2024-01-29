@@ -15,7 +15,7 @@ type UpdateProfileData = {
 };
 
 const getProfile = async () => {
-  const response = await api.get('/users/profile');
+  const response = await api.get<UserInfo>('/users/profile');
   return response.data;
 };
 
