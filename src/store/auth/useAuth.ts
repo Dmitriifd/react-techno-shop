@@ -23,5 +23,6 @@ export const useAuthStore = create<AuthStore>()(
         name: 'user-storage',
       },
     ),
+    { name: 'auth' },
   ),
 );

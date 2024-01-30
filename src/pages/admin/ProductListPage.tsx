@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import {
@@ -18,23 +18,20 @@ import EditIcon from '@assets/icons/edit.svg?react';
 import PlusIcon from '@assets/icons/plus.svg?react';
 import { Button } from '@components/ui/button';
 import { Section } from '@components/ui/section';
-import { ProductService } from '@services/profuct.service';
-import { Product } from 'types/product';
+import { useProductStore } from '@store/useProductStore';
 
 const SERVER_URL = 'http://localhost:5000';
 
 const ProductListPage = () => {
-  const [products, setProducts] = useState<Product[]>([]);
+  const { products, fetchProducts, deleteProduct } = useProductStore((state) => state);
 
   useEffect(() => {
-    ProductService.getProducts()
-      .then((data) => {
-        setProducts(data.products);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
+    fetchProducts();
+  }, [fetchProducts]);
+
+  const handleDeleteProduct = (id: string) => {
+    deleteProduct(id);
+  };
 
   return (
     <Section>
@@ -60,7 +57,7 @@ const ProductListPage = () => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {products.map((product) => (
+          {products?.map((product) => (
             <TableRow key={product._id} className="even:bg-gray-100">
               <TableCell>{product._id}</TableCell>
               <TableCell className="flex gap-1 items-center">
@@ -92,7 +89,7 @@ const ProductListPage = () => {
                     </AlertDialogHeader>
                     <AlertDialogFooter>
                       <AlertDialogCancel>Отмена</AlertDialogCancel>
-                      <AlertDialogAction>Удалить</AlertDialogAction>
+                      <AlertDialogAction onClick={() => handleDeleteProduct(product._id)}>Удалить</AlertDialogAction>
                     </AlertDialogFooter>
                   </AlertDialogContent>
                 </AlertDialog>

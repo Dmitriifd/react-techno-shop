@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { toast } from '@components/ui/use-toast';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { ProductService } from '@services/profuct.service';
+import { ProductService } from '@services/product.service';
 import { z } from 'zod';
 
 const messageSchema = { message: 'Обязательное поле' };

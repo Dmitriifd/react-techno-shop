@@ -25,8 +25,14 @@ const getProducts = async () => {
   return response.data;
 };
 
+const deleteProduct = async (id: string) => {
+  const response = await api.delete(`/products/${id}`);
+  return response.data;
+};
+
 export const ProductService = {
   createProduct,
   uploadProductImage,
   getProducts,
+  deleteProduct,
 };
