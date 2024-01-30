@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import {
@@ -17,39 +18,24 @@ import EditIcon from '@assets/icons/edit.svg?react';
 import PlusIcon from '@assets/icons/plus.svg?react';
 import { Button } from '@components/ui/button';
 import { Section } from '@components/ui/section';
+import { ProductService } from '@services/profuct.service';
+import { Product } from 'types/product';
 
-const products = [
-  {
-    id: '1',
-    name: 'iPhone 13 Pro 256GB',
-    price: '64500',
-    category: 'Смартфоны',
-    brand: 'Apple',
-  },
-  {
-    id: '2',
-    name: 'Xiaomi redmi note 15 128GB',
-    price: '24500',
-    category: 'Смартфоны',
-    brand: 'Xiaomi',
-  },
-  {
-    id: '3',
-    name: 'Samsung S22 Ultra 256GB',
-    price: '79000',
-    category: 'Смартфоны',
-    brand: 'Samsung',
-  },
-  {
-    id: '4',
-    name: 'Samsung gallaxy s22 Ultra 256GB',
-    price: '79000',
-    category: 'Смартфоны',
-    brand: 'Samsung',
-  },
-];
+const SERVER_URL = 'http://localhost:5000';
 
 const ProductListPage = () => {
+  const [products, setProducts] = useState<Product[]>([]);
+
+  useEffect(() => {
+    ProductService.getProducts()
+      .then((data) => {
+        setProducts(data.products);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
   return (
     <Section>
       <div className="flex justify-between mb-10">
@@ -75,9 +61,12 @@ const ProductListPage = () => {
         </TableHeader>
         <TableBody>
           {products.map((product) => (
-            <TableRow key={product.id} className="even:bg-gray-100">
-              <TableCell>{product.id}</TableCell>
-              <TableCell>{product.name}</TableCell>
+            <TableRow key={product._id} className="even:bg-gray-100">
+              <TableCell>{product._id}</TableCell>
+              <TableCell className="flex gap-1 items-center">
+                <img src={`${SERVER_URL}${product.image}`} width={30} height={30} alt="" />
+                {product.name}
+              </TableCell>
               <TableCell>{product.price}</TableCell>
               <TableCell className="text-right">{product.category}</TableCell>
               <TableCell className="text-right">{product.brand}</TableCell>
