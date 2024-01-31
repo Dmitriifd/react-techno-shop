@@ -16,7 +16,7 @@ export const useProductStore = create<ProductStore>()(
       products: [],
       fetchProducts: async () => {
         const res = await ProductService.getProducts();
-        set({ products: res.products });
+        set({ products: res.products }, false, 'fetchProducts');
       },
       deleteProduct: async (productId) => {
         const res = await ProductService.deleteProduct(productId);
@@ -25,7 +25,7 @@ export const useProductStore = create<ProductStore>()(
           variant: 'success',
           title: res.message,
         });
-        set({ products: updatedProducts.products });
+        set({ products: updatedProducts.products }, false, 'deleteProduct');
       },
     }),
     { name: 'products' },

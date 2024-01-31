@@ -20,7 +20,7 @@ import { Button } from '@components/ui/button';
 import { Section } from '@components/ui/section';
 import { useProductStore } from '@store/useProductStore';
 
-const SERVER_URL = 'http://localhost:5000';
+export const SERVER_URL = 'http://localhost:5000';
 
 const ProductListPage = () => {
   const { products, fetchProducts, deleteProduct } = useProductStore((state) => state);
@@ -68,7 +68,7 @@ const ProductListPage = () => {
               <TableCell className="text-right">{product.category}</TableCell>
               <TableCell className="text-right">{product.brand}</TableCell>
               <TableCell className="flex gap-2 justify-end">
-                <Link to={`/admin/product/1/edit`}>
+                <Link to={`/admin/product/${product._id}/edit`}>
                   <Button>
                     <EditIcon />
                   </Button>

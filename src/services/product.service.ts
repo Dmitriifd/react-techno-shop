@@ -1,6 +1,7 @@
 import { api } from './api-client';
 
-type CreateProduct = {
+type RequestProduct = {
+  id?: string;
   brand: string;
   category: string;
   countInStock: number;
@@ -10,7 +11,7 @@ type CreateProduct = {
   price: number;
 };
 
-const createProduct = async (data: CreateProduct) => {
+const createProduct = async (data: RequestProduct) => {
   const response = await api.post('/products', data);
   return response.data;
 };
@@ -25,6 +26,16 @@ const getProducts = async () => {
   return response.data;
 };
 
+const getProductById = async (id: string) => {
+  const response = await api.get(`/products/${id}`);
+  return response.data;
+};
+
+const updateProduct = async (data: RequestProduct) => {
+  const response = await api.put(`/products/${data.id}`, data);
+  return response.data;
+};
+
 const deleteProduct = async (id: string) => {
   const response = await api.delete(`/products/${id}`);
   return response.data;
@@ -35,4 +46,6 @@ export const ProductService = {
   uploadProductImage,
   getProducts,
   deleteProduct,
+  getProductById,
+  updateProduct,
 };
