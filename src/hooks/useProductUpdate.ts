@@ -23,6 +23,7 @@ const ProductSchema = z.object({
   category: z.string().min(2, messageSchema),
   countInStock: z.coerce.number().min(1, messageSchema),
   description: z.string().min(2, messageSchema),
+  char: z.string().min(2, messageSchema),
 });
 
 type FormData = z.infer<typeof ProductSchema>;
@@ -63,6 +64,7 @@ export const useProductUpdate = () => {
         image: res.image,
         name: data.name,
         price: data.price,
+        char: data.char,
       });
 
       navigate('/admin/products');

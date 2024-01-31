@@ -7,4 +7,5 @@ export type Product = {
   category: string;
   countInStock: number;
   description: string;
+  char: string;
 };

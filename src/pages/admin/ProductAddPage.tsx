@@ -53,6 +53,11 @@ const ProductAddPage = () => {
           <Input type="text" className="placeholder:text-gray-300" {...register('description')} />
         </Label>
         {errors.description && <p className="text-red-500 text-sm">{errors.description.message}</p>}
+        <Label className="text-sm text-[#848992]">
+          <span className="inline-block mb-2">Характеристики</span>
+          <Input type="text" className="placeholder:text-gray-300" {...register('char')} />
+        </Label>
+        {errors.char && <p className="text-red-500 text-sm">{errors.char.message}</p>}
         <Button className="mt-5 text-base max-w-[250px]" disabled={isLoading}>
           Добавить товар
         </Button>

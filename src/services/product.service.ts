@@ -6,6 +6,7 @@ type RequestProduct = {
   category: string;
   countInStock: number;
   description: string;
+  char: string;
   image: string;
   name: string;
   price: number;
