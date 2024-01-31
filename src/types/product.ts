@@ -8,4 +8,5 @@ export type Product = {
   countInStock: number;
   description: string;
   char: string;
+  colors: string[];
 };

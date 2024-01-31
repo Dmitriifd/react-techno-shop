@@ -101,6 +101,17 @@ const ProductEditPage = () => {
           <Input defaultValue={product?.char} type="text" className="placeholder:text-gray-300" {...register('char')} />
         </Label>
         {errors.char && <p className="text-red-500 text-sm">{errors.char.message}</p>}
+        <Label className="text-sm text-[#848992]">
+          <span className="inline-block mb-2">Цвет</span>
+          <Input
+            type="text"
+            className="placeholder:text-gray-300"
+            {...register('color')}
+            placeholder="black,red,green"
+            defaultValue={product?.colors}
+          />
+        </Label>
+        {errors.color && <p className="text-red-500 text-sm">{errors.color.message}</p>}
         <Button className="mt-5 text-base max-w-[200px]" disabled={isLoading}>
           Обновить
         </Button>

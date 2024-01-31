@@ -10,6 +10,7 @@ type RequestProduct = {
   image: string;
   name: string;
   price: number;
+  colors: string[];
 };
 
 const createProduct = async (data: RequestProduct) => {

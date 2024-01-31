@@ -24,6 +24,7 @@ const ProductSchema = z.object({
   countInStock: z.coerce.number().min(1, messageSchema),
   description: z.string().min(2, messageSchema),
   char: z.string().min(2, messageSchema),
+  color: z.string().min(2, messageSchema),
 });
 
 type FormData = z.infer<typeof ProductSchema>;
@@ -57,6 +58,9 @@ export const useProductUpdate = () => {
     const formData = new FormData();
     formData.append('image', data.image[0]);
 
+    const { color } = data;
+    const colors = color.split(/[,\s]+/);
+
     try {
       setIsLoading(true);
       const res = await ProductService.uploadProductImage(formData);
@@ -70,6 +74,7 @@ export const useProductUpdate = () => {
         name: data.name,
         price: data.price,
         char: data.char,
+        colors: colors,
       });
 
       navigate('/admin/products');
