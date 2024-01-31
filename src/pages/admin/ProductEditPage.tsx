@@ -3,13 +3,25 @@ import { Link } from 'react-router-dom';
 import { Button } from '@components/ui/button';
 import { Input } from '@components/ui/input';
 import { Label } from '@components/ui/label';
+import { Message } from '@components/ui/message';
 import { Section } from '@components/ui/section';
 import { useProductUpdate } from '@hooks/useProductUpdate';
 
 import { SERVER_URL } from './ProductListPage';
 
 const ProductEditPage = () => {
-  const { isLoading, register, handleSubmit, errors, onSubmit, product } = useProductUpdate();
+  const { isLoading, register, handleSubmit, errors, onSubmit, product, error } = useProductUpdate();
+
+  if (error) {
+    return (
+      <Section>
+        <Link to="/admin/products" className="py-2 px-4 bg-black text-white rounded-md mb-5 inline-block">
+          Вернуться назад
+        </Link>
+        <Message variant="danger">{error}</Message>
+      </Section>
+    );
+  }
 
   return (
     <Section>

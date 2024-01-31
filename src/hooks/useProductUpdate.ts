@@ -31,13 +31,18 @@ type FormData = z.infer<typeof ProductSchema>;
 export const useProductUpdate = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
   const [product, setProduct] = useState<Product | null>(null);
   const { id } = useParams() as { id: string };
 
   useEffect(() => {
-    ProductService.getProductById(id).then((res) => {
-      setProduct(res);
-    });
+    ProductService.getProductById(id)
+      .then((res) => {
+        setProduct(res);
+      })
+      .catch((error) => {
+        setError(error.response.data.message);
+      });
   }, [id]);
 
   const {
@@ -87,5 +92,6 @@ export const useProductUpdate = () => {
     errors,
     onSubmit,
     product,
+    error,
   };
 };
