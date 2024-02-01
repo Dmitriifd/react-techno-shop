@@ -33,6 +33,11 @@ const getProductById = async (id: string) => {
   return response.data;
 };
 
+const getProductCategories = async (category: string) => {
+  const response = await api.get(`/products/category/${category}`);
+  return response.data;
+};
+
 const updateProduct = async (data: RequestProduct) => {
   const response = await api.put(`/products/${data.id}`, data);
   return response.data;
@@ -50,4 +55,5 @@ export const ProductService = {
   deleteProduct,
   getProductById,
   updateProduct,
+  getProductCategories,
 };
