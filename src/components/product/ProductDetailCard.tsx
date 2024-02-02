@@ -24,7 +24,6 @@ const ProductDetailCard = () => {
     setActiveButton(index);
   };
 
-  console.log('render');
   if (loading) {
     return <div>Loading...</div>;
   }

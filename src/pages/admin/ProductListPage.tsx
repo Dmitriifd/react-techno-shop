@@ -23,11 +23,15 @@ import { useProductStore } from '@store/useProductStore';
 export const SERVER_URL = 'http://localhost:5000';
 
 const ProductListPage = () => {
-  const { products, fetchProducts, deleteProduct } = useProductStore((state) => state);
+  const { products, fetchProducts, deleteProduct, clearProducts } = useProductStore((state) => state);
 
   useEffect(() => {
     fetchProducts();
-  }, [fetchProducts]);
+
+    return () => {
+      clearProducts();
+    };
+  }, [fetchProducts, clearProducts]);
 
   const handleDeleteProduct = (id: string) => {
     deleteProduct(id);
