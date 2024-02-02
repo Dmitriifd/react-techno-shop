@@ -34,7 +34,13 @@ const CatalogPage = () => {
           {/* Products list */}
           <div className="grid  gap-5 grid-cols-1 sm2:grid-cols-2 flex-wrap md:grid-cols-3 xll:grid-cols-4">
             {products.map((product) => (
-              <ProductCard key={product._id} img={product.image} title={product.name} price={product.price} />
+              <ProductCard
+                key={product._id}
+                id={product._id}
+                img={product.image}
+                title={product.name}
+                price={product.price}
+              />
             ))}
           </div>
         </div>

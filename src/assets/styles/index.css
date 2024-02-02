@@ -73,6 +73,30 @@
   }
 }
 
+.black {
+  background-color: #000;
+}
+
+.red {
+  background-color: #d33939;
+}
+
+.gray {
+  background-color: #ccc;
+}
+
+.green {
+  background-color: #1b7961;
+}
+
+.blue {
+  background-color: #3e40d8;
+}
+
+.white {
+  background-color: #f0f0f0;
+}
+
 @layer base {
   * {
     @apply border-border;

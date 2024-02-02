@@ -7,8 +7,11 @@ import { devtools } from 'zustand/middleware';
 
 type ProductStore = {
   products: Product[];
+  product: Product | null;
+  loading: boolean;
   fetchProducts: () => Promise<void>;
   fetchProductByCategory: (category: string) => Promise<void>;
+  fetchProductById: (id: string) => Promise<void>;
   deleteProduct: (productId: string) => Promise<void>;
 };
 
@@ -16,6 +19,8 @@ export const useProductStore = create<ProductStore>()(
   devtools(
     (set) => ({
       products: [],
+      product: null,
+      loading: false,
       fetchProducts: async () => {
         const res = await ProductService.getProducts();
         set({ products: res.products }, false, 'fetchProducts');
@@ -39,6 +44,11 @@ export const useProductStore = create<ProductStore>()(
           title: res.message,
         });
         set({ products: updatedProducts.products }, false, 'deleteProduct');
+      },
+      fetchProductById: async (id) => {
+        set({ loading: true });
+        const res = await ProductService.getProductById(id);
+        set({ product: res, loading: false });
       },
     }),
     { name: 'products' },

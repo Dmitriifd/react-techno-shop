@@ -1,6 +1,11 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
-const ProductTabs = () => {
+type ProductTabsProps = {
+  description: string;
+  char: string;
+};
+
+const ProductTabs = ({ description, char }: ProductTabsProps) => {
   return (
     <Tabs defaultValue="account" className="w-full">
       <TabsList className="gap-5">
@@ -11,10 +16,8 @@ const ProductTabs = () => {
           Характеристики
         </TabsTrigger>
       </TabsList>
-      <TabsContent value="account">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, deleniti!
-      </TabsContent>
-      <TabsContent value="password">Lorem ipsum dolor sit amet consectetur adipisicing elit. In, ad?</TabsContent>
+      <TabsContent value="account">{description}</TabsContent>
+      <TabsContent value="password">{char}</TabsContent>
     </Tabs>
   );
 };

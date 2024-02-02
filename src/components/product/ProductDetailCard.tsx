@@ -1,53 +1,58 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 import ArrowRightIcon from '@assets/icons/arrowRight.svg?react';
 import { Button } from '@components/ui/button';
 import { cn } from '@lib/utils';
+import { SERVER_URL } from '@pages/admin/ProductListPage';
+import { useProductStore } from '@store/useProductStore';
 
 import { ProductPrice } from './ProductPrice';
-
-const colors = [
-  {
-    id: 1,
-    color: 'bg-black',
-  },
-  {
-    id: 2,
-    color: 'bg-red-500',
-  },
-  {
-    id: 3,
-    color: 'bg-green-500',
-  },
-];
+import { ProductTabs } from './ProductTabs';
 
 const ProductDetailCard = () => {
   const [activeButton, setActiveButton] = useState(0);
+
+  const { id } = useParams() as { id: string };
+  const { fetchProductById, loading, product } = useProductStore((state) => state);
+
+  useEffect(() => {
+    fetchProductById(id);
+  }, [id, fetchProductById]);
 
   const handleChangeColor = (index: number) => {
     setActiveButton(index);
   };
 
+  console.log('render');
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (!product) {
+    return null;
+  }
+
   return (
     <>
-      <h2 className="text-2xl font-bold mb-7 block lg:hidden">Смартфон Apple iPhone 13 128 ГБ черный</h2>
+      <h2 className="text-2xl font-bold mb-7 block lg:hidden">{product.name}</h2>
       <div className="flex gap-8 items-start flex-wrap mb-[50px] lg:flex-row lg:flex-nowrap">
         {/* ProductImage */}
-        <div className="p-10 border inline-block rounded-[5px]">
-          <img src="/honor3.webp" alt="" width={300} height={300} />
+        <div className="p-10 border inline-block rounded-[5px] shrink-0">
+          <img src={`${SERVER_URL}${product.image}`} alt="" width={300} height={300} />
         </div>
         {/* ProductInfo */}
         <div>
-          <h2 className="text-2xl font-bold mb-7 hidden lg:block">Смартфон Apple iPhone 13 128 ГБ черный</h2>
+          <h2 className="text-2xl font-bold mb-7 hidden lg:block">{product.name}</h2>
           {/* Colors */}
           <div className="mb-5">
             <div className="flex gap-5 text-sm items-center">
               Цвет:
-              {colors.map(({ id, color }, index) => (
+              {product.colors.map((color, index) => (
                 <Button
-                  key={id}
+                  key={index}
                   className={cn(
-                    `w-[30px] h-[30px] ${color} outline-offset-4 outline outline-2 hover:${color}/80`,
+                    `w-[30px] h-[30px] ${color} outline-offset-4 outline outline-2 hover:bg-${color}`,
                     activeButton === index ? 'outline-accent-base' : '',
                   )}
                   onClick={() => handleChangeColor(index)}
@@ -58,12 +63,12 @@ const ProductDetailCard = () => {
           {/* Characteristics */}
           <div className="flex flex-col gap-y-5 items-start">
             <ul className="flex flex-col gap-3">
-              <li>Экран: OLED, 7.85 (3120x1440),</li>
-              <li>Процессор: Qualcomm Snapdragon 8 Plus Gen 1;</li>
-              <li>Память: оперативная 12 ГБ, встроенная 512 ГБ,</li>
-              <li>Поддержка сетей: 2G/3G/4G (LTE);</li>
-              <li>Сканер отпечатка пальцев: сбоку;</li>
-              <li>Размеры (ШхВхТ): 72.4 х 156.9 х 11.08 мм;</li>
+              {product.description
+                .split('.')
+                .slice(0, 3)
+                .map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
             </ul>
             <a href="#char" className="flex gap-2  items-center text-accent-base pl-0">
               Все характеристики
@@ -71,8 +76,9 @@ const ProductDetailCard = () => {
             </a>
           </div>
         </div>
-        <ProductPrice />
+        <ProductPrice price={product.price} />
       </div>
+      <ProductTabs description={product.description} char={product.char} />
     </>
   );
 };
