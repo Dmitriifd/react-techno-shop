@@ -75,7 +75,7 @@ const ProductDetailCard = () => {
             </a>
           </div>
         </div>
-        <ProductPrice price={product.price} />
+        <ProductPrice price={product.price} product={product} />
       </div>
       <ProductTabs description={product.description} char={product.char} />
     </>
