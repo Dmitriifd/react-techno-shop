@@ -10,9 +10,10 @@ type CartTooltipProps = {
   open: boolean;
   setOpen: (open: boolean) => void;
   countCart: number;
+  totalPrice: number;
 };
 
-export function CartTooltip({ open, setOpen, countCart }: Readonly<CartTooltipProps>) {
+export function CartTooltip({ open, setOpen, countCart, totalPrice }: Readonly<CartTooltipProps>) {
   const cart = useCartStore((state) => state.cart);
 
   useEffect(() => {
@@ -32,7 +33,7 @@ export function CartTooltip({ open, setOpen, countCart }: Readonly<CartTooltipPr
             <span className="absolute flex items-center justify-center text-white text-xs font-medium bg-[#EC2525] rounded-full w-[15px] h-[15px] top-1 left-7 py-[1px] px-[3px]">
               {countCart}
             </span>
-            <span className="hidden lg:block text-black">7 777 ₽</span>
+            <span className="hidden lg:block text-black">{totalPrice} ₽</span>
           </Link>
         </TooltipTrigger>
         <TooltipContent className="bg-white border p-2" side="bottom" align="end">

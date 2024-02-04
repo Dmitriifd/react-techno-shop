@@ -13,7 +13,7 @@ import { HeaderSearch } from './HeaderSearch';
 const HeaderCenter = () => {
   const userInfo = useAuthStore((state) => state.userInfo);
   const countCart = useCartStore((state) => state.cart.length);
-  const { open, setOpen } = useCartStore((state) => state);
+  const { open, setOpen, totalPrice } = useCartStore((state) => state);
 
   return (
     <div className="container hidden md:flex items-center bg-white py-1">
@@ -35,7 +35,7 @@ const HeaderCenter = () => {
             <span className="hidden lg:block text-black">Войти</span>
           </Link>
         )}
-        <CartTooltip open={open} setOpen={setOpen} countCart={countCart} />
+        <CartTooltip open={open} setOpen={setOpen} countCart={countCart} totalPrice={totalPrice} />
         {userInfo?.isAdmin && <AdminDropDown />}
         <MobileMenu isHeader />
       </div>
