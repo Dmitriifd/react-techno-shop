@@ -9,6 +9,8 @@ type CartProduct = Product & {
 type CartStore = {
   cart: CartProduct[];
   totalPrice: number;
+  open: boolean;
+  setOpen: (open: boolean) => void;
   addToCart: (product: Product) => void;
   removeFromCart: (productId: string) => void;
   increaseQuantity: (productId: string) => void;
@@ -25,6 +27,7 @@ export const useCartStore = create<CartStore>()(
       (set) => ({
         cart: [],
         totalPrice: 0,
+        open: false,
         addToCart: (product) => {
           set((state) => {
             const updatedCart = [...state.cart];
@@ -37,7 +40,7 @@ export const useCartStore = create<CartStore>()(
               updatedCart.push(newProduct);
             }
             const totalPrice = calculateTotalPrice(updatedCart);
-            return { cart: updatedCart, totalPrice };
+            return { cart: updatedCart, totalPrice, open: true };
           });
         },
         removeFromCart: (productId) => {
@@ -65,6 +68,7 @@ export const useCartStore = create<CartStore>()(
             return { cart: updatedCart, totalPrice };
           });
         },
+        setOpen: (open) => set(() => ({ open })),
       }),
       { name: 'cart-storage' },
     ),
