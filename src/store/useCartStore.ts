@@ -15,6 +15,7 @@ type CartStore = {
   removeFromCart: (productId: string) => void;
   increaseQuantity: (productId: string) => void;
   decreaseQuantity: (productId: string) => void;
+  cleanCart: () => void;
 };
 
 const calculateTotalPrice = (cart: CartProduct[]) => {
@@ -69,6 +70,7 @@ export const useCartStore = create<CartStore>()(
           });
         },
         setOpen: (open) => set(() => ({ open })),
+        cleanCart: () => set((state) => ({ ...state, cart: [], totalPrice: 0 })),
       }),
       { name: 'cart-storage' },
     ),
