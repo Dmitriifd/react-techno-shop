@@ -16,6 +16,10 @@ const CatalogPage = () => {
 
   useEffect(() => {
     fetchProductByCategory(category);
+
+    return () => {
+      useProductStore.setState((state) => ({ ...state, products: [] }));
+    };
   }, [category, fetchProductByCategory]);
 
   return (
