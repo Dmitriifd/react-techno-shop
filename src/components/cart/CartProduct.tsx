@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import { Counter } from '@components/shared/Counter';
 import { SERVER_URL } from '@pages/admin/ProductListPage';
 
@@ -14,10 +16,14 @@ const CartProduct = ({ title, price, image, id }: CartProductProps) => {
   return (
     <div className="border-b pb-3 md:pb-7 max-w-[750px]">
       <div className="flex gap-5">
-        <img className="w-[100px] h-[100px]" src={`${SERVER_URL}${image}`} alt="img" />
+        <Link to={`/product/${id}`}>
+          <img className="w-[100px] h-[100px]" src={`${SERVER_URL}${image}`} alt="img" />
+        </Link>
         <div className="flex flex-col justify-between grow">
           <div className="flex items-start gap-3 flex-col md:flex-row md:gap-10">
-            <h3 className="max-w-[355px]">{title}</h3>
+            <Link to={`/product/${id}`}>
+              <h3 className="max-w-[355px]">{title}</h3>
+            </Link>
             <Counter id={id} />
             <div className="flex flex-row gap-3 items-center md:flex-col ml-auto">
               <span className="text-[#EC2525] text-xl font-bold">{price}₽</span>
