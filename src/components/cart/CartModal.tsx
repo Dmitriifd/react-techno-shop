@@ -11,8 +11,15 @@ import {
 } from '@/components/ui/alert-dialog';
 import DeleteIcon from '@assets/icons/delete.svg?react';
 import { Button } from '@components/ui/button';
+import { useCartStore } from '@store/useCartStore';
 
-const CartModal = () => {
+const CartModal = ({ id }: { id: string }) => {
+  const removeFromCart = useCartStore((state) => state.removeFromCart);
+
+  const handleDelete = (id: string) => {
+    removeFromCart(id);
+  };
+
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
@@ -36,7 +43,9 @@ const CartModal = () => {
           <AlertDialogCancel className="border-[#FE9015] text-accent-base w-[130px] hover:bg-transparent hover:text-accent-base">
             Отмена
           </AlertDialogCancel>
-          <AlertDialogAction className="bg-[#EC2525] w-[130px] hover:bg-[#EC2525]/90">Удалить</AlertDialogAction>
+          <AlertDialogAction className="bg-[#EC2525] w-[130px] hover:bg-[#EC2525]/90" onClick={() => handleDelete(id)}>
+            Удалить
+          </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>

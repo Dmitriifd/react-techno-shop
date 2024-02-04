@@ -1,23 +1,31 @@
 import { Counter } from '@components/shared/Counter';
+import { SERVER_URL } from '@pages/admin/ProductListPage';
 
 import { CartModal } from './CartModal';
 
-const CartProduct = () => {
+type CartProductProps = {
+  title: string;
+  price: number;
+  image: string;
+  id: string;
+};
+
+const CartProduct = ({ title, price, image, id }: CartProductProps) => {
   return (
-    <div className="border-b pb-3 md:pb-7">
+    <div className="border-b pb-3 md:pb-7 max-w-[750px]">
       <div className="flex gap-5">
-        <img className="w-[100px] h-[100px]" src="/honor3.webp" alt="img" />
-        <div className="flex flex-col justify-between">
+        <img className="w-[100px] h-[100px]" src={`${SERVER_URL}${image}`} alt="img" />
+        <div className="flex flex-col justify-between grow">
           <div className="flex items-start gap-3 flex-col md:flex-row md:gap-10">
-            <h3 className="max-w-[355px]">Смартфон Apple iPhone 13 128 ГБ черный</h3>
-            <Counter />
-            <div className="flex flex-row gap-3 items-center md:flex-col">
-              <span className="text-[#EC2525] text-xl font-bold">3651 ₽</span>
+            <h3 className="max-w-[355px]">{title}</h3>
+            <Counter id={id} />
+            <div className="flex flex-row gap-3 items-center md:flex-col ml-auto">
+              <span className="text-[#EC2525] text-xl font-bold">{price}₽</span>
               <span className="text-[#848992] line-through text-sm">4500 ₽</span>
             </div>
           </div>
           <div>
-            <CartModal />
+            <CartModal id={id} />
           </div>
         </div>
       </div>
