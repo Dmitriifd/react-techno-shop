@@ -1,4 +1,4 @@
-import { CheckOutForm } from '@components/forms/CheckOutForm';
+import { OrderForm } from '@components/forms/OrderForm';
 import { Section } from '@components/ui/section';
 
 const CheckoutPage = () => {
@@ -6,7 +6,7 @@ const CheckoutPage = () => {
     <Section>
       <h2 className="text-3xl mb-10 font-bold">Оформление заказа</h2>
 
-      <CheckOutForm />
+      <OrderForm />
     </Section>
   );
 };
