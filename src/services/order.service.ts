@@ -20,7 +20,19 @@ const getOrders = async () => {
   return response.data;
 };
 
+const getOrderById = async (id: string) => {
+  const response = await api.get(`/orders/${id}`);
+  return response.data;
+};
+
+const updateOrderToDelivered = async (id: string) => {
+  const response = await api.put(`/orders/${id}/deliver`);
+  return response.data;
+};
+
 export const OrderService = {
   submitOrder,
   getOrders,
+  getOrderById,
+  updateOrderToDelivered,
 };

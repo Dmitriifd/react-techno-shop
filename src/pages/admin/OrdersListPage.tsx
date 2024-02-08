@@ -42,7 +42,9 @@ const OrdersListPage = () => {
                 {order.isDelivered ? <span>Доставлен</span> : <span>В пути</span>}
               </TableCell>
               <TableCell className="flex gap-2 justify-end">
-                <Link to="/admin/orders/1" className="bg-black rounded-md py-1 px-3 text-white hover:bg-black/80">
+                <Link
+                  to={`/admin/orders/${order._id}`}
+                  className="bg-black rounded-md py-1 px-3 text-white hover:bg-black/80">
                   Подробнее
                 </Link>
               </TableCell>
