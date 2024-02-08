@@ -19,6 +19,10 @@ const getOrders = async () => {
   const response = await api.get('/orders');
   return response.data;
 };
+const getMyOrders = async () => {
+  const response = await api.get('/orders/mine');
+  return response.data;
+};
 
 const getOrderById = async (id: string) => {
   const response = await api.get(`/orders/${id}`);
@@ -35,4 +39,5 @@ export const OrderService = {
   getOrders,
   getOrderById,
   updateOrderToDelivered,
+  getMyOrders,
 };

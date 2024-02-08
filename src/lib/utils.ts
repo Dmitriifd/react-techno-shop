@@ -8,6 +8,7 @@ export function cn(...inputs: ClassValue[]) {
 export const wait = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 export function formatDate(isoDateString: string) {
+  if (!isoDateString) return;
   const date = new Date(isoDateString);
   const formatter = new Intl.DateTimeFormat('ru-RU', {
     day: '2-digit',
