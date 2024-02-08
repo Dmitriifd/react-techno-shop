@@ -9,4 +9,5 @@ export type Product = {
   description: string;
   char: string;
   colors: string[];
+  quantity?: number;
 };
