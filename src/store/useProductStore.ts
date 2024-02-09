@@ -11,7 +11,7 @@ type ProductStore = {
   loading: boolean;
   fetchProducts: () => Promise<void>;
   fetchProductByCategory: (category: string) => Promise<void>;
-  fetchProductById: (id: string) => Promise<void>;
+  fetchProductById: (id: string) => Promise<Product>;
   deleteProduct: (productId: string) => Promise<void>;
   clearProducts: () => void;
 };
@@ -50,6 +50,7 @@ export const useProductStore = create<ProductStore>()(
         set({ loading: true });
         const res = await ProductService.getProductById(id);
         set({ product: res, loading: false });
+        return res;
       },
       clearProducts: () => set({ products: [] }),
     }),

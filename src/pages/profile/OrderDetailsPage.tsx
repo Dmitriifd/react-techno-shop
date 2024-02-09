@@ -8,12 +8,22 @@ import ReloadIcon from '@assets/icons/reload.svg?react';
 import { Button } from '@components/ui/button';
 import { formatDate } from '@lib/utils';
 import { SERVER_URL } from '@pages/admin/ProductListPage';
+import { useCartStore } from '@store/useCartStore';
 import { useOrderStore } from '@store/useOrderStore';
+import { useProductStore } from '@store/useProductStore';
 
 const OrderDetailsPage = () => {
   const { id } = useParams() as { id: string };
   const fetchOrderById = useOrderStore((state) => state.fetchOrderById);
   const order = useOrderStore((state) => state.order);
+  const fetchProductById = useProductStore((state) => state.fetchProductById);
+  const addToCart = useCartStore((state) => state.addToCart);
+
+  const handleAddToCart = (id: string) => {
+    fetchProductById(id).then((data) => {
+      addToCart(data);
+    });
+  };
 
   useEffect(() => {
     fetchOrderById(id);
@@ -43,13 +53,17 @@ const OrderDetailsPage = () => {
 
         <ul className="space-y-7">
           {order?.orderItems?.map((item) => (
-            <li className="pb-[30px] border-b last:border-b-0" key={item._id}>
+            <li className="pb-[30px] border-b last:border-b-0" key={item?._id}>
               <div className="flex">
                 <div className="mr-5">
-                  <img className="w-[100px] h-[100px] object-contain" src={`${SERVER_URL}${item.image}`} alt="poco" />
+                  <Link to={`/product/${item.product}`}>
+                    <img className="w-[100px] h-[100px] object-contain" src={`${SERVER_URL}${item.image}`} alt="poco" />
+                  </Link>
                 </div>
                 <div className="flex justify-between flex-col gap-1 grow lg:flex-row">
-                  <h2 className="max-w-[350px]">{item.name}</h2>
+                  <Link to={`/product/${item.product}`}>
+                    <h2 className="max-w-[350px]">{item.name}</h2>
+                  </Link>
                   <div className="flex gap-10">
                     <span className="text-sm">{item.quantity} шт</span>
                     <div className="flex gap-2 items-center lg:block">
@@ -60,11 +74,11 @@ const OrderDetailsPage = () => {
                   <TooltipProvider delayDuration={200}>
                     <Tooltip>
                       <TooltipTrigger asChild>
-                        <Button variant="base" className="sm2:w-fit">
+                        <Button variant="base" className="sm2:w-fit" onClick={() => handleAddToCart(item.product)}>
                           <AddCartIcon />
                         </Button>
                       </TooltipTrigger>
-                      <TooltipContent className="bg-white text-black shadow mb-1">
+                      <TooltipContent className="bg-white text-black shadow mb-1 z-50">
                         <p>Добавить в корзину</p>
                       </TooltipContent>
                     </Tooltip>
