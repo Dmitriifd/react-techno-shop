@@ -29,7 +29,7 @@ export const useProductStore = create<ProductStore>()(
       fetchProductByCategory: async (category) => {
         try {
           const res = await ProductService.getProductCategories(category);
-          set({ products: res }, false, 'fetchProductCategory');
+          set({ products: res.products }, false, 'fetchProductCategory');
         } catch (error) {
           if (error instanceof AxiosError) {
             console.log(error.response?.data.message);
