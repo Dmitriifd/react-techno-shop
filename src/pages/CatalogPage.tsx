@@ -12,6 +12,7 @@ import { useProductStore } from '@store/useProductStore';
 
 const CatalogPage = () => {
   const { category } = useParams() as { category: string };
+
   const { products, fetchProductByCategory } = useProductStore((state) => state);
 
   useEffect(() => {
