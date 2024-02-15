@@ -1,8 +1,11 @@
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import CloseIcon from '@assets/icons/close.svg?react';
 import { Button } from '@components/ui/button';
+import { useProductStore } from '@store/useProductStore';
 
 const FilterPanel = () => {
+  const sortProducts = useProductStore((state) => state.sortProducts);
+
   return (
     <div className="mb-10">
       {/* Top */}
@@ -24,14 +27,14 @@ const FilterPanel = () => {
             </Button>
           </div>
         </div>
-        <Select>
+        <Select onValueChange={sortProducts}>
           <SelectTrigger className="w-full mb-3 sm2:w-[210px] md:border-none shadow-none ml-auto text-base">
             <SelectValue placeholder="По популярности" />
           </SelectTrigger>
           <SelectContent className="order-2 sm2:order-none">
-            <SelectItem value="light">По популярности</SelectItem>
-            <SelectItem value="dark">Сначала дешевые</SelectItem>
-            <SelectItem value="system">Сначала дорогие</SelectItem>
+            <SelectItem value="rating">По популярности</SelectItem>
+            <SelectItem value="desc">Сначала дешевые</SelectItem>
+            <SelectItem value="asc">Сначала дорогие</SelectItem>
           </SelectContent>
         </Select>
       </div>

@@ -7,6 +7,7 @@ export type Product = {
   category: string;
   countInStock: number;
   description: string;
+  rating: number;
   char: string;
   colors: string[];
   quantity?: number;

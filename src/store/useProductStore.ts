@@ -5,6 +5,8 @@ import { Product } from 'types/product';
 import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
 
+export type SortOption = 'asc' | 'desc' | 'rating';
+
 type ProductStore = {
   products: Product[];
   product: Product | null;
@@ -14,6 +16,7 @@ type ProductStore = {
   fetchProductById: (id: string) => Promise<Product>;
   deleteProduct: (productId: string) => Promise<void>;
   clearProducts: () => void;
+  sortProducts: (data: SortOption) => void;
 };
 
 export const useProductStore = create<ProductStore>()(
@@ -53,6 +56,25 @@ export const useProductStore = create<ProductStore>()(
         return res;
       },
       clearProducts: () => set({ products: [] }),
+      sortProducts: (data) => {
+        switch (data) {
+          case 'asc':
+            set((state) => ({
+              products: [...state.products.sort((a, b) => b.price - a.price)],
+            }));
+            break;
+          case 'desc':
+            set((state) => ({
+              products: [...state.products.sort((a, b) => a.price - b.price)],
+            }));
+            break;
+          case 'rating':
+            set((state) => ({
+              products: [...state.products.sort((a, b) => b.rating - a.rating)],
+            }));
+            break;
+        }
+      },
     }),
     { name: 'products' },
   ),

@@ -4,6 +4,7 @@ import ArrowIcon from '@/assets/icons/arrowDown.svg?react';
 import { cn } from '@lib/utils';
 import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from '@radix-ui/react-icons';
 import * as SelectPrimitive from '@radix-ui/react-select';
+import { SortOption } from '@store/useProductStore';
 
 const Select = SelectPrimitive.Root;
 
@@ -96,7 +97,7 @@ SelectLabel.displayName = SelectPrimitive.Label.displayName;
 
 const SelectItem = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Item>,
-  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Item>
+  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Item> & { value: SortOption }
 >(({ className, children, ...props }, ref) => (
   <SelectPrimitive.Item
     ref={ref}
