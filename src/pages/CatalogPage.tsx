@@ -13,15 +13,13 @@ import { Product } from 'types/product';
 
 const CatalogPage = () => {
   const { category } = useParams() as { category: string };
-  const {
-    products,
-    fetchProductByCategory,
-    minPrice: constMinPrice,
-    maxPrice: constMaxPrice,
-  } = useProductStore((state) => state);
+  const products = useProductStore((state) => state.products);
+  const fetchProductByCategory = useProductStore((state) => state.fetchProductByCategory);
+  const constMinPrice = useProductStore((state) => state.minPrice);
+  const constMaxPrice = useProductStore((state) => state.maxPrice);
 
-  const [minPrice, setMinPrice] = useState(0);
-  const [maxPrice, setMaxPrice] = useState(0);
+  const [minPrice, setMinPrice] = useState(constMinPrice);
+  const [maxPrice, setMaxPrice] = useState(constMaxPrice);
 
   const filterProducts = (product: Product) => {
     return product.price >= minPrice && product.price <= maxPrice;

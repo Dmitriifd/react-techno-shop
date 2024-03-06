@@ -1,8 +1,9 @@
-import { memo, useCallback } from 'react';
+import { memo, useRef } from 'react';
 
 import { Input } from '@components/ui/input';
 import { Label } from '@components/ui/label';
 import { Slider } from '@components/ui/slider';
+import throttle from 'lodash.throttle';
 
 type PriceFilterProps = {
   constMinPrice: number;
@@ -15,13 +16,13 @@ type PriceFilterProps = {
 
 const PriceFilter = memo(
   ({ constMinPrice, constMaxPrice, minPrice, maxPrice, setMinPrice, setMaxPrice }: PriceFilterProps) => {
-    const handleRangeChange = useCallback(
-      (value: number[]) => {
-        setMinPrice(value[0]);
-        setMaxPrice(value[1]);
-      },
-      [setMaxPrice, setMinPrice],
-    );
+    const throttledSetMinPrice = useRef(throttle(setMinPrice, 100)).current;
+    const throttledSetMaxPrice = useRef(throttle(setMaxPrice, 100)).current;
+
+    const handleRangeChange = (value: number[]) => {
+      throttledSetMinPrice(value[0]);
+      throttledSetMaxPrice(value[1]);
+    };
 
     return (
       <div className="mb-10">
