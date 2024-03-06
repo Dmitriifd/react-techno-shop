@@ -11,6 +11,8 @@ type ProductStore = {
   products: Product[];
   product: Product | null;
   loading: boolean;
+  minPrice: number;
+  maxPrice: number;
   fetchProducts: () => Promise<void>;
   fetchProductByCategory: (category: string) => Promise<void>;
   fetchProductById: (id: string) => Promise<Product>;
@@ -25,19 +27,28 @@ export const useProductStore = create<ProductStore>()(
       products: [],
       product: null,
       loading: false,
+      minPrice: 0,
+      maxPrice: 0,
       fetchProducts: async () => {
         const res = await ProductService.getProducts();
         set({ products: res.products }, false, 'fetchProducts');
       },
       fetchProductByCategory: async (category) => {
+        set({ loading: true });
         try {
           const res = await ProductService.getProductCategories(category);
-          set({ products: res.products }, false, 'fetchProductCategory');
+          set(
+            { products: res.products, minPrice: res.minPrice, maxPrice: res.maxPrice },
+            false,
+            'fetchProductCategory',
+          );
         } catch (error) {
           if (error instanceof AxiosError) {
             console.log(error.response?.data.message);
           }
           set({ products: [] }, false, 'fetchProductCategory');
+        } finally {
+          set({ loading: false });
         }
       },
       deleteProduct: async (productId) => {
