@@ -18,8 +18,8 @@ const CatalogPage = () => {
   const constMinPrice = useProductStore((state) => state.minPrice);
   const constMaxPrice = useProductStore((state) => state.maxPrice);
 
-  const [minPrice, setMinPrice] = useState(constMinPrice);
-  const [maxPrice, setMaxPrice] = useState(constMaxPrice);
+  const [minPrice, setMinPrice] = useState(0);
+  const [maxPrice, setMaxPrice] = useState(0);
 
   const filterProducts = (product: Product) => {
     return product.price >= minPrice && product.price <= maxPrice;
