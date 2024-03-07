@@ -11,6 +11,7 @@ type RequestProduct = {
   name: string;
   price: number;
   colors: string[];
+  year: string;
 };
 
 const createProduct = async (data: RequestProduct) => {

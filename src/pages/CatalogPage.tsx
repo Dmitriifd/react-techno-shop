@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { BrandFilter } from '@components/filters/BrandFilter';
@@ -21,9 +21,16 @@ const CatalogPage = () => {
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(0);
 
-  const filterProducts = (product: Product) => {
-    return product.price >= minPrice && product.price <= maxPrice;
-  };
+  const filterProducts = useCallback(
+    (product: Product) => {
+      return product.price >= minPrice && product.price <= maxPrice;
+    },
+    [minPrice, maxPrice],
+  );
+
+  const filteredProducts = useMemo(() => {
+    return products.filter(filterProducts);
+  }, [products, filterProducts]);
 
   useEffect(() => {
     setMinPrice(constMinPrice);
@@ -60,7 +67,7 @@ const CatalogPage = () => {
           <FilterPanel />
           {/* Products list */}
           <div className="grid  gap-5 grid-cols-1 sm2:grid-cols-2 flex-wrap md:grid-cols-3 xll:grid-cols-4">
-            {products.filter(filterProducts).map((product) => (
+            {filteredProducts.map((product) => (
               <ProductCard key={product._id} product={product} />
             ))}
           </div>

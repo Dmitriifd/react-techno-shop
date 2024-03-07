@@ -37,6 +37,10 @@ const ProductAddPage = () => {
           <span className="inline-block mb-2">Бренд</span>
           <Input type="text" className="placeholder:text-gray-300" {...register('brand')} />
         </Label>
+        <Label className="text-sm text-[#848992]">
+          <span className="inline-block mb-2">Год</span>
+          <Input type="text" className="placeholder:text-gray-300" {...register('year')} />
+        </Label>
         {errors.brand && <p className="text-red-500 text-sm">{errors.brand.message}</p>}
         <Label className="text-sm text-[#848992]">
           <span className="inline-block mb-2">Количество на складе</span>

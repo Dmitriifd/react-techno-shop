@@ -20,6 +20,7 @@ const ProductSchema = z.object({
     .refine((file) => file?.[0]?.size <= MAX_FILE_SIZE, `Максимальный размер файла 5MB.`)
     .refine((file) => ACCEPTED_IMAGE_TYPES.includes(file?.[0]?.type), 'Только .jpg, .jpeg, .png и .webp форматы.'),
   brand: z.string().min(2, messageSchema),
+  year: z.string().min(2, messageSchema),
   category: z.string().min(2, messageSchema),
   countInStock: z.coerce.number().min(1, messageSchema),
   description: z.string().min(2, messageSchema),
@@ -75,6 +76,7 @@ export const useProductUpdate = () => {
         price: data.price,
         char: data.char,
         colors: colors,
+        year: data.year,
       });
 
       navigate('/admin/products');

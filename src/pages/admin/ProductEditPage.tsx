@@ -65,6 +65,10 @@ const ProductEditPage = () => {
             {...register('brand')}
           />
         </Label>
+        <Label className="text-sm text-[#848992]">
+          <span className="inline-block mb-2">Год</span>
+          <Input defaultValue={product?.year} type="text" className="placeholder:text-gray-300" {...register('year')} />
+        </Label>
         {errors.brand && <p className="text-red-500 text-sm">{errors.brand.message}</p>}
         <Label className="text-sm text-[#848992]">
           <span className="inline-block mb-2">Количество на складе</span>
