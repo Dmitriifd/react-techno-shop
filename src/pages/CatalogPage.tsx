@@ -1,41 +1,18 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
-import { BrandFilter } from '@components/filters/BrandFilter';
 import { FilterPanel } from '@components/filters/FilterPanel';
-import { PriceFilter } from '@components/filters/PriceFilter';
-import { YearsFilter } from '@components/filters/YearsFilter';
+import { Filters } from '@components/filters/Filters';
 import { MobileFilterMenu } from '@components/mobile/MobileFilterMenu';
-import { ProductCard } from '@components/shared/ProductCard';
 import { Section } from '@components/ui/section';
 import { useProductStore } from '@store/useProductStore';
-import { Product } from 'types/product';
+
+import { CatalogProductsList } from './CatalogProductsList';
 
 const CatalogPage = () => {
   const { category } = useParams() as { category: string };
   const products = useProductStore((state) => state.products);
   const fetchProductByCategory = useProductStore((state) => state.fetchProductByCategory);
-  const constMinPrice = useProductStore((state) => state.minPrice);
-  const constMaxPrice = useProductStore((state) => state.maxPrice);
-
-  const [minPrice, setMinPrice] = useState(0);
-  const [maxPrice, setMaxPrice] = useState(0);
-
-  const filterProducts = useCallback(
-    (product: Product) => {
-      return product.price >= minPrice && product.price <= maxPrice;
-    },
-    [minPrice, maxPrice],
-  );
-
-  const filteredProducts = useMemo(() => {
-    return products.filter(filterProducts);
-  }, [products, filterProducts]);
-
-  useEffect(() => {
-    setMinPrice(constMinPrice);
-    setMaxPrice(constMaxPrice);
-  }, [constMinPrice, constMaxPrice]);
 
   useEffect(() => {
     fetchProductByCategory(category);
@@ -48,29 +25,11 @@ const CatalogPage = () => {
   return (
     <Section>
       <div className="flex gap-10 items-start">
-        {/* Filters */}
-        <div className="w-[300px] border rounded-lg p-5 hidden tablet:block shrink-0">
-          <PriceFilter
-            constMinPrice={constMinPrice}
-            constMaxPrice={constMaxPrice}
-            minPrice={minPrice}
-            maxPrice={maxPrice}
-            setMinPrice={setMinPrice}
-            setMaxPrice={setMaxPrice}
-          />
-          <BrandFilter />
-          <YearsFilter />
-        </div>
-
+        <Filters />
         <div className="grow">
           <MobileFilterMenu />
           <FilterPanel />
-          {/* Products list */}
-          <div className="grid  gap-5 grid-cols-1 sm2:grid-cols-2 flex-wrap md:grid-cols-3 xll:grid-cols-4">
-            {filteredProducts.map((product) => (
-              <ProductCard key={product._id} product={product} />
-            ))}
-          </div>
+          <CatalogProductsList products={products} />
         </div>
       </div>
     </Section>

@@ -1,22 +1,14 @@
-import { useEffect, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 
 import { Checkbox } from '@components/ui/checkbox';
 import { Label } from '@components/ui/label';
 import { ProductService } from '@services/product.service';
-
-const items = [
-  { id: 1, label: 'Apple' },
-  { id: 2, label: 'Xiaomi' },
-  { id: 3, label: 'HONOR' },
-  { id: 4, label: 'Samsung' },
-  { id: 5, label: 'Techno' },
-  { id: 6, label: 'POCO' },
-  { id: 7, label: 'HUAWEI' },
-];
+import { useProductStore } from '@store/useProductStore';
 
 const ShowMore = () => {
   const [visibleItems, setVisibleItems] = useState(5);
   const [isExpanded, setIsExpanded] = useState(false);
+  const { filters, setFilters } = useProductStore((state) => state);
 
   const [brands, setBrands] = useState([]);
 
@@ -24,9 +16,17 @@ const ShowMore = () => {
     ProductService.getBrands().then((data) => setBrands(data));
   }, []);
 
+  const handleBrandChange = (event) => {
+    const brand = event.target.value;
+    const updatedBrands = filters.brands.includes(brand)
+      ? filters.brands.filter((selectedBrand) => selectedBrand !== brand)
+      : [...filters.brands, brand];
+    setFilters({ ...filters, brands: updatedBrands });
+  };
+
   const handleToggleVisibility = () => {
     if (visibleItems === 5) {
-      setVisibleItems(items.length);
+      setVisibleItems(brands.length);
       setIsExpanded(true);
     } else {
       setVisibleItems(5);
@@ -36,10 +36,15 @@ const ShowMore = () => {
 
   return (
     <div className="flex flex-col items-start gap-2">
-      {brands.slice(0, visibleItems).map((item) => (
-        <Label key={item} className="flex gap-3 items-center cursor-pointer w-full">
-          <Checkbox />
-          <span className="md:grow">{item}</span>
+      {brands.slice(0, visibleItems).map((brand) => (
+        <Label key={brand} className="flex gap-3 items-center cursor-pointer w-full">
+          <Checkbox
+            value={brand}
+            aria-checked={filters.brands.includes(brand)}
+            checked={filters.brands.includes(brand)}
+            onClick={handleBrandChange}
+          />
+          <span className="md:grow">{brand}</span>
         </Label>
       ))}
       <button className="text-sm text-accent-base" onClick={handleToggleVisibility}>

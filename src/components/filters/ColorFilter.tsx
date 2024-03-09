@@ -8,22 +8,23 @@ import { Label } from '@components/ui/label';
 import { ProductService } from '@services/product.service';
 import { useProductStore } from '@store/useProductStore';
 
-const YearsFilter = () => {
+const ColorFilter = () => {
   const [isOpen, setIsOpen] = useState(true);
-  const [years, setYears] = useState([]);
   const { filters, setFilters } = useProductStore((state) => state);
+  const [colors, setColors] = useState([]);
+  console.log(colors);
 
-  const handleYearChange = (event: MouseEvent<HTMLButtonElement>) => {
-    const year = event.currentTarget.value;
-    const updatedYears = filters.years.includes(year)
-      ? filters.years.filter((selectedYear) => selectedYear !== year)
-      : [...filters.years, year];
+  const handleColorChange = (event: MouseEvent<HTMLButtonElement>) => {
+    const color = event.currentTarget.value;
+    const updatedColors = filters.colors.includes(color)
+      ? filters.colors.filter((selectedColor) => selectedColor !== color)
+      : [...filters.colors, color];
 
-    setFilters({ ...filters, years: updatedYears });
+    setFilters({ ...filters, colors: updatedColors });
   };
 
   useEffect(() => {
-    ProductService.getYears().then((data) => setYears(data));
+    ProductService.getColors().then((data) => setColors(data));
   }, []);
 
   return (
@@ -34,7 +35,7 @@ const YearsFilter = () => {
             variant="ghost"
             size="sm"
             className="flex w-full justify-between p-2 pl-0 text-base font-bold hover:bg-transparent">
-            <span>Год релиза</span>
+            <span>Выбор цвета</span>
             <ArrowIcon
               width={24}
               height={24}
@@ -45,15 +46,15 @@ const YearsFilter = () => {
         </CollapsibleTrigger>
       </div>
       <CollapsibleContent className="space-y-2 pt-3">
-        {years.map((year) => (
-          <Label key={year} className="flex gap-3 items-center cursor-pointer">
+        {colors.map((color) => (
+          <Label key={color} className="flex gap-3 items-center cursor-pointer">
             <Checkbox
-              value={year}
-              aria-checked={filters.years.includes(year)}
-              checked={filters.years.includes(year)}
-              onClick={handleYearChange}
+              value={color}
+              aria-checked={filters.colors.includes(color)}
+              checked={filters.colors.includes(color)}
+              onClick={handleColorChange}
             />
-            <span className="md:grow">{year}</span>
+            <span className="md:grow">{color}</span>
           </Label>
         ))}
       </CollapsibleContent>
@@ -61,4 +62,4 @@ const YearsFilter = () => {
   );
 };
 
-export { YearsFilter };
+export { ColorFilter };

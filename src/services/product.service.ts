@@ -34,6 +34,11 @@ const getBrands = async () => {
   return response.data;
 };
 
+const getColors = async () => {
+  const response = await api.get('/products/colors');
+  return response.data;
+};
+
 const getYears = async () => {
   const response = await api.get('/products/years');
   return response.data;
@@ -69,4 +74,5 @@ export const ProductService = {
   getProductCategories,
   getBrands,
   getYears,
+  getColors,
 };

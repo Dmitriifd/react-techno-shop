@@ -4,29 +4,29 @@ import { Button } from '@components/ui/button';
 import { useProductStore } from '@store/useProductStore';
 
 const FilterPanel = () => {
+  const { filters, setFilters, resetFilters } = useProductStore((state) => state);
+  const brands = filters.brands;
+  const years = filters.years;
+
+  const handleChangeBrand = (brand: string) => {
+    setFilters({
+      ...filters,
+      brands: brands.includes(brand) ? brands.filter((b) => b !== brand) : [...brands, brand],
+    });
+  };
+  const handleChangeYear = (year: string) => {
+    setFilters({
+      ...filters,
+      years: years.includes(year) ? years.filter((b) => b !== year) : [...years, year],
+    });
+  };
+
   const sortProducts = useProductStore((state) => state.sortProducts);
 
   return (
     <div className="mb-10">
       {/* Top */}
       <div className="mb-4 flex flex-col">
-        <div className="flex items-center  gap-5 flex-wrap order-1">
-          <h3>Часто ищут:</h3>
-          <div className="flex gap-[10px] flex-wrap">
-            <Button variant="outline" className="h-[30px]">
-              Название
-            </Button>
-            <Button variant="outline" className="h-[30px]">
-              Название
-            </Button>
-            <Button variant="outline" className="h-[30px]">
-              Название
-            </Button>
-            <Button variant="outline" className="h-[30px]">
-              Название
-            </Button>
-          </div>
-        </div>
         <Select onValueChange={sortProducts}>
           <SelectTrigger className="w-full mb-3 sm2:w-[210px] md:border-none shadow-none ml-auto text-base">
             <SelectValue placeholder="По популярности" />
@@ -41,25 +41,34 @@ const FilterPanel = () => {
       {/* Bottom */}
       <div className="flex flex-col gap-2 sm2:flex-row order-3">
         <div className="flex items-center gap-2 flex-wrap mb-2 sm2:mb-0">
-          <Button variant="base" className="h-[30px] flex gap-2">
-            Название
-            <CloseIcon fill="#FFF" />
-          </Button>
-          <Button variant="base" className="h-[30px] flex gap-2">
-            Название
-            <CloseIcon fill="#FFF" />
-          </Button>
-          <Button variant="base" className="h-[30px] flex gap-2">
-            Название
-            <CloseIcon fill="#FFF" />
-          </Button>
+          {brands.length > 0 &&
+            brands.map((brand) => (
+              <Button
+                key={brand}
+                variant="base"
+                className="h-[30px] flex gap-2"
+                onClick={() => handleChangeBrand(brand)}>
+                Бренд: {brand}
+                <CloseIcon fill="#FFF" />
+              </Button>
+            ))}
+          {years.length > 0 &&
+            years.map((year) => (
+              <Button key={year} variant="base" className="h-[30px] flex gap-2" onClick={() => handleChangeYear(year)}>
+                Год: {year}
+                <CloseIcon fill="#FFF" />
+              </Button>
+            ))}
         </div>
-        <Button
-          variant="outline"
-          className="group flex w-full items-center  gap-2 border-accent-base text-accent-base hover:bg-accent-base hover:text-white transition-colors ml-auto sm2:w-fit">
-          Сбросить фильтры
-          <CloseIcon fill="#FE9015" className="group-hover:fill-white" />
-        </Button>
+        {brands.length > 0 || years.length > 0 ? (
+          <Button
+            onClick={resetFilters}
+            variant="outline"
+            className="group flex w-full items-center  gap-2 border-accent-base text-accent-base hover:bg-accent-base hover:text-white transition-colors ml-auto sm2:w-fit">
+            Сбросить фильтры
+            <CloseIcon fill="#FE9015" className="group-hover:fill-white" />
+          </Button>
+        ) : null}
       </div>
     </div>
   );

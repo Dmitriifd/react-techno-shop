@@ -7,18 +7,31 @@ import { devtools } from 'zustand/middleware';
 
 export type SortOption = 'asc' | 'desc' | 'rating';
 
+interface Filters {
+  brands: string[];
+  years: string[];
+  colors: string[];
+}
+
 type ProductStore = {
   products: Product[];
   product: Product | null;
   loading: boolean;
+  constMinPrice: number;
+  constMaxPrice: number;
   minPrice: number;
   maxPrice: number;
+  filters: Filters;
   fetchProducts: () => Promise<void>;
   fetchProductByCategory: (category: string) => Promise<void>;
   fetchProductById: (id: string) => Promise<Product>;
   deleteProduct: (productId: string) => Promise<void>;
   clearProducts: () => void;
   sortProducts: (data: SortOption) => void;
+  setFilters: (newFilters: Partial<Filters>) => void;
+  resetFilters: () => void;
+  setMinPrice: (minPrice: number) => void;
+  setMaxPrice: (maxPrice: number) => void;
 };
 
 export const useProductStore = create<ProductStore>()(
@@ -27,18 +40,33 @@ export const useProductStore = create<ProductStore>()(
       products: [],
       product: null,
       loading: false,
+      constMinPrice: 0,
+      constMaxPrice: 0,
       minPrice: 0,
       maxPrice: 0,
+      filters: {
+        brands: [],
+        years: [],
+        colors: [],
+      },
       fetchProducts: async () => {
         const res = await ProductService.getProducts();
         set({ products: res.products }, false, 'fetchProducts');
       },
+      setFilters: (newFilters) => set((state) => ({ filters: { ...state.filters, ...newFilters } })),
+      resetFilters: () => set({ filters: { brands: [], years: [], colors: [] } }),
       fetchProductByCategory: async (category) => {
         set({ loading: true });
         try {
           const res = await ProductService.getProductCategories(category);
           set(
-            { products: res.products, minPrice: res.minPrice, maxPrice: res.maxPrice },
+            {
+              products: res.products,
+              constMinPrice: res.minPrice,
+              constMaxPrice: res.maxPrice,
+              minPrice: res.minPrice,
+              maxPrice: res.maxPrice,
+            },
             false,
             'fetchProductCategory',
           );
@@ -86,6 +114,8 @@ export const useProductStore = create<ProductStore>()(
             break;
         }
       },
+      setMinPrice: (minPrice) => set({ minPrice }),
+      setMaxPrice: (maxPrice) => set({ maxPrice }),
     }),
     { name: 'products' },
   ),
