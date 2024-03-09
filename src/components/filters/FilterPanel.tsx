@@ -7,6 +7,7 @@ const FilterPanel = () => {
   const { filters, setFilters, resetFilters } = useProductStore((state) => state);
   const brands = filters.brands;
   const years = filters.years;
+  const colors = filters.colors;
 
   const handleChangeBrand = (brand: string) => {
     setFilters({
@@ -18,6 +19,13 @@ const FilterPanel = () => {
     setFilters({
       ...filters,
       years: years.includes(year) ? years.filter((b) => b !== year) : [...years, year],
+    });
+  };
+
+  const handleChangeColor = (color: string) => {
+    setFilters({
+      ...filters,
+      colors: colors.includes(color) ? colors.filter((b) => b !== color) : [...colors, color],
     });
   };
 
@@ -59,8 +67,19 @@ const FilterPanel = () => {
                 <CloseIcon fill="#FFF" />
               </Button>
             ))}
+          {colors.length > 0 &&
+            colors.map((color) => (
+              <Button
+                key={color}
+                variant="base"
+                className="h-[30px] flex gap-2"
+                onClick={() => handleChangeColor(color)}>
+                Цвет: {color}
+                <CloseIcon fill="#FFF" />
+              </Button>
+            ))}
         </div>
-        {brands.length > 0 || years.length > 0 ? (
+        {brands.length > 0 || years.length > 0 || colors.length > 0 ? (
           <Button
             onClick={resetFilters}
             variant="outline"

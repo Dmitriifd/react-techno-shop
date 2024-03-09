@@ -12,7 +12,6 @@ const ColorFilter = () => {
   const [isOpen, setIsOpen] = useState(true);
   const { filters, setFilters } = useProductStore((state) => state);
   const [colors, setColors] = useState([]);
-  console.log(colors);
 
   const handleColorChange = (event: MouseEvent<HTMLButtonElement>) => {
     const color = event.currentTarget.value;

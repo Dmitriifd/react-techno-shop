@@ -22,8 +22,6 @@ const CatalogProductsList = ({ products }: { products: Product[] }) => {
     });
   }, [filters, products, minPrice, maxPrice]);
 
-  console.log('render');
-
   return (
     <div className="grid  gap-5 grid-cols-1 sm2:grid-cols-2 flex-wrap md:grid-cols-3 xll:grid-cols-4">
       {filteredProducts.map((product) => (
