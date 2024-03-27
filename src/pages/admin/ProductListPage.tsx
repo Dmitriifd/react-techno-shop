@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 import {
   AlertDialog,
@@ -16,6 +16,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
 import RemoveIcon from '@assets/icons/delete.svg?react';
 import EditIcon from '@assets/icons/edit.svg?react';
 import PlusIcon from '@assets/icons/plus.svg?react';
+import { Paginate } from '@components/shared/Paginate';
 import { Button } from '@components/ui/button';
 import { Section } from '@components/ui/section';
 import { useProductStore } from '@store/useProductStore';
@@ -23,15 +24,16 @@ import { useProductStore } from '@store/useProductStore';
 export const SERVER_URL = 'http://localhost:5000';
 
 const ProductListPage = () => {
-  const { products, fetchProducts, deleteProduct, clearProducts } = useProductStore((state) => state);
+  const { products, fetchProducts, deleteProduct, clearProducts, page, pages } = useProductStore((state) => state);
+  const { id } = useParams() as { id: string };
 
   useEffect(() => {
-    fetchProducts();
+    fetchProducts(id);
 
     return () => {
       clearProducts();
     };
-  }, [fetchProducts, clearProducts]);
+  }, [fetchProducts, clearProducts, id]);
 
   const handleDeleteProduct = (id: string) => {
     deleteProduct(id);
@@ -102,6 +104,7 @@ const ProductListPage = () => {
           ))}
         </TableBody>
       </Table>
+      <Paginate page={page} pages={pages} />
     </Section>
   );
 };

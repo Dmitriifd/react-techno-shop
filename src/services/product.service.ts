@@ -24,8 +24,8 @@ const uploadProductImage = async (data: FormData) => {
   return response.data;
 };
 
-const getProducts = async () => {
-  const response = await api.get('/products');
+const getProducts = async (page = '1') => {
+  const response = await api.get(`/products?pageNumber=${page}`);
   return response.data;
 };
 

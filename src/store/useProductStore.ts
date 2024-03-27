@@ -22,7 +22,9 @@ type ProductStore = {
   minPrice: number;
   maxPrice: number;
   filters: Filters;
-  fetchProducts: () => Promise<void>;
+  page: number;
+  pages: number;
+  fetchProducts: (id: string) => Promise<void>;
   fetchProductByCategory: (category: string) => Promise<void>;
   fetchProductById: (id: string) => Promise<Product>;
   deleteProduct: (productId: string) => Promise<void>;
@@ -44,14 +46,17 @@ export const useProductStore = create<ProductStore>()(
       constMaxPrice: 0,
       minPrice: 0,
       maxPrice: 0,
+      page: 1,
+      pages: 1,
       filters: {
         brands: [],
         years: [],
         colors: [],
       },
-      fetchProducts: async () => {
-        const res = await ProductService.getProducts();
-        set({ products: res.products }, false, 'fetchProducts');
+      fetchProducts: async (id) => {
+        const res = await ProductService.getProducts(id);
+
+        set({ products: res.products, page: res.page, pages: res.pages }, false, 'fetchProducts');
       },
       setFilters: (newFilters) => set((state) => ({ filters: { ...state.filters, ...newFilters } })),
       resetFilters: () => set({ filters: { brands: [], years: [], colors: [] } }),
